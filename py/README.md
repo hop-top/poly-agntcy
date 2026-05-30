@@ -1,79 +1,43 @@
-# poly-agntcy
+# poly-agntcy Python workspace
 
-Polyglot SDK suite for the AGNTCY Agent Directory Service (DIR)
+uv workspace hosting three framework adapters for the AGNTCY Directory Service.
 
-## Install
+## Packages
 
-```sh
-pip install poly-agntcy
-```
+- `packages/dir-fastapi` — FastAPI `APIRouter` factory + `agntcy` Typer CLI.
+- `packages/dir-flask` — Flask `Blueprint` factory.
+- `packages/dir-django` — Django app providing URLs and views.
 
-Or with [uv](https://docs.astral.sh/uv/):
+All three depend on upstream `agntcy-dir` (pre-1.0; pinned `>=0.3,<2`).
 
-```sh
-uv tool install poly-agntcy
-```
+## Requirements
 
-## Usage
+- Python 3.12+
+- [`uv`](https://docs.astral.sh/uv/) for env + dependency management.
 
-```sh
-poly-agntcy --help
-poly-agntcy --version
-```
-
-### Output formats
+## Common commands
 
 ```sh
-poly-agntcy --format json
-poly-agntcy --format yaml
+uv sync                       # install workspace + dev deps
+uv run pytest                 # run all package tests
+uv run ruff check packages    # lint
+uv run ruff format packages   # format
+uv run mypy packages          # typecheck (strict)
 ```
 
-### Commands
+Run a single package's tests:
 
 ```sh
-poly-agntcy hello
-poly-agntcy hello --name You
+uv run pytest packages/dir-fastapi
 ```
 
-## Getting started
+## Layout
 
-Toolchain is pinned in `mise.toml`. Install everything in one go:
-
-```sh
-mise install                # installs Python + uv (and other pinned tools)
-mise run install            # syncs ecosystem deps (uv sync)
-cp .env.example .env        # adapter defaults (telemetry, storage, queue, log, config)
 ```
-
-Optional — start telemetry services (otel-collector + jaeger):
-
-```sh
-docker compose -f .devcontainer/docker-compose.yml up -d
-open http://localhost:16686 # Jaeger UI for traces
+py/
+  pyproject.toml          # workspace root + mypy/ruff config
+  packages/
+    dir-fastapi/
+    dir-flask/
+    dir-django/
 ```
-
-## Tool versions
-
-Python, uv, ruff, and release tooling are pinned in `mise.toml`
-inside a kit-managed block. Refresh procedure
-(`kit init --check` / `kit init --update`) is documented in
-poly-kit's
-[templates/RUNBOOK-UPGRADE.md](https://github.com/hop-top/poly-kit/blob/main/templates/RUNBOOK-UPGRADE.md).
-
-## Development
-
-Prerequisites: `mise` (installs the pinned Python toolchain + uv),
-[Task](https://taskfile.dev).
-
-```sh
-task setup    # sync deps
-task check    # lint + typecheck + test
-task format   # auto-format
-```
-
-## License
-
-See [LICENSE](LICENSE).
-
----
-Maintained by Jad Bitar.
