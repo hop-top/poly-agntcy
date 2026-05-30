@@ -9,6 +9,7 @@ use crate::proto::{
     VerifyResponse,
 };
 
+#[non_exhaustive]
 #[derive(thiserror::Error, Debug)]
 pub enum Error {
     #[error("endpoint required")]
