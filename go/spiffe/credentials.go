@@ -2,52 +2,54 @@
 package spiffe
 
 import (
+	"context"
 	"crypto/tls"
-	"crypto/x509"
+	"errors"
 
+	"github.com/spiffe/go-spiffe/v2/spiffeid"
+	"github.com/spiffe/go-spiffe/v2/spiffetls/tlsconfig"
 	"github.com/spiffe/go-spiffe/v2/workloadapi"
 )
 
-// Credentials carries a SPIFFE X509Source and produces a TLS config that
-// presents the workload SVID as the client certificate. Server verification
-// is left to caller-supplied roots — callers needing SPIFFE-aware
-// authentication should compose with go-spiffe spiffetls helpers.
+// Credentials carries a SPIFFE X509Source plus the trust domain peers must
+// belong to. TLS() returns an mTLS *tls.Config built via
+// spiffetls/tlsconfig.MTLSClientConfig so the workload SVID is presented as
+// the client certificate and the server SVID is verified and authorized
+// against TrustDomain.
 type Credentials struct {
-	Source *workloadapi.X509Source
+	Source      *workloadapi.X509Source
+	TrustDomain spiffeid.TrustDomain
 }
 
-// TLS returns a *tls.Config that uses the SPIFFE source for client certs.
+// TLS returns a *tls.Config wired for SPIFFE mTLS. Returns nil when the
+// receiver, Source, or TrustDomain is unset — callers treat nil as "no
+// credentials available" and either fall back or fail closed.
 func (c *Credentials) TLS() *tls.Config {
-	if c == nil || c.Source == nil {
+	if c == nil || c.Source == nil || c.TrustDomain.IsZero() {
 		return nil
 	}
-	return &tls.Config{
-		GetClientCertificate: func(*tls.CertificateRequestInfo) (*tls.Certificate, error) {
-			svid, err := c.Source.GetX509SVID()
-			if err != nil {
-				return nil, err
-			}
-			return &tls.Certificate{
-				Certificate: rawChain(svid.Certificates),
-				PrivateKey:  svid.PrivateKey,
-				Leaf:        leafOf(svid.Certificates),
-			}, nil
-		},
-		MinVersion: tls.VersionTLS12,
-	}
+	return tlsconfig.MTLSClientConfig(
+		c.Source,
+		c.Source,
+		tlsconfig.AuthorizeMemberOf(c.TrustDomain),
+	)
 }
 
-func rawChain(certs []*x509.Certificate) [][]byte {
-	out := make([][]byte, len(certs))
-	for i, c := range certs {
-		out[i] = c.Raw
+// FromDefaultSocket constructs Credentials backed by a workloadapi X509Source
+// dialed at socketPath. Caller owns the returned Source and must Close it.
+func FromDefaultSocket(ctx context.Context, socketPath string, td spiffeid.TrustDomain) (*Credentials, error) {
+	if socketPath == "" {
+		return nil, errors.New("spiffe: socketPath required")
 	}
-	return out
-}
-
-func leafOf(certs []*x509.Certificate) *x509.Certificate {
-	if len(certs) == 0 {
-		return nil
+	if td.IsZero() {
+		return nil, errors.New("spiffe: TrustDomain required")
 	}
-	return certs[0]
+	src, err := workloadapi.NewX509Source(
+		ctx,
+		workloadapi.WithClientOptions(workloadapi.WithAddr(socketPath)),
+	)
+	if err != nil {
+		return nil, err
+	}
+	return &Credentials{Source: src, TrustDomain: td}, nil
 }
