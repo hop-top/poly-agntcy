@@ -1,0 +1,12 @@
+[project]
+name = "poly-agntcy-example-django-quickstart"
+version = "0.0.0"
+description = "Django quickstart for poly-agntcy-dir-django"
+requires-python = ">=3.12"
+dependencies = [
+  "poly-agntcy-dir-django",
+  "django>=5.0",
+]
+
+[tool.uv.sources]
+poly-agntcy-dir-django = { path = "../../../py/packages/dir-django", editable = true }
