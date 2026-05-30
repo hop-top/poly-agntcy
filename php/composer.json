@@ -1,0 +1,37 @@
+{
+  "name": "agntcy/poly-agntcy",
+  "description": "Polyglot SDK suite for the AGNTCY Agent Directory Service (DIR)",
+  "type": "project",
+  "license": "Apache-2.0",
+  "version": "0.0.0",
+  "authors": [
+    { "name": "Jad Bitar", "email": "jadb@users.noreply.github.com" }
+  ],
+  "bin": ["bin/poly-agntcy"],
+  "require": {
+    "php": "^8.3",
+    "hop-top/kit": "^0.4.0@alpha",
+    "symfony/console": "^7.0"
+  },
+  "require-dev": {
+    "phpstan/phpstan": "^2.1",
+    "phpunit/phpunit": "^11"
+  },
+  "autoload": {
+    "psr-4": {
+      "Agntcy\\PolyAgntcy\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Agntcy\\PolyAgntcy\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "phpunit",
+    "lint": "phpstan analyse"
+  },
+  "config": {
+    "sort-packages": true
+  }
+}

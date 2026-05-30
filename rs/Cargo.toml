@@ -1,0 +1,20 @@
+[package]
+name = "poly-agntcy"
+version = "0.0.0"
+edition = "2021"
+license = "Apache-2.0"
+description = "Polyglot SDK suite for the AGNTCY Agent Directory Service (DIR)"
+authors = ["Jad Bitar <jadb@users.noreply.github.com>"]
+
+[[bin]]
+name = "poly-agntcy"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4", features = ["derive", "string"] }
+hop-top-kit = { version = "0.4.0-experimental.2", features = ["cli"] }
+serde_json = "1"
+
+[dev-dependencies]
+assert_cmd = "2"
+predicates = "3"

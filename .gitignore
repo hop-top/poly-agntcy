@@ -1,0 +1,63 @@
+# >>> kit-managed: gitignore >>>
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Editor/IDE
+.idea/
+.vscode/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Compose service bind-mount data (postgres, redis, minio, etc.)
+.data/
+# Go
+vendor/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+coverage.out
+# Rust
+target/
+# Cargo.lock: commit for bins (this template ships a CLI), ignore for libs
+*.rs.bk
+**/*.rs.bk
+*.pdb
+# PHP
+vendor/
+composer.lock
+.phpunit.cache/
+.phpunit.result.cache
+coverage/
+# TypeScript / Node
+node_modules/
+dist/
+build/
+*.tsbuildinfo
+coverage/
+.npm
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+.venv/
+venv/
+*.egg-info/
+*.egg
+dist/
+build/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+htmlcov/
+# <<< kit-managed: gitignore <<<
