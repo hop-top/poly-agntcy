@@ -1,0 +1,17 @@
+[project]
+name = "poly-agntcy-dir-flask"
+version = "0.1.0a0"
+description = "Flask adapter for AGNTCY Directory Service"
+license = "Apache-2.0"
+requires-python = ">=3.12"
+dependencies = [
+  "agntcy-dir",
+  "flask>=3.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/poly_agntcy_dir_flask"]
