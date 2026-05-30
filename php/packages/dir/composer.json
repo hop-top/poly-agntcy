@@ -17,7 +17,8 @@
         "psr-4": {
             "PolyAgntcy\\Dir\\": "src/",
             "PolyAgntcy\\Dir\\Generated\\": "src/Generated/"
-        }
+        },
+        "files": ["src/Generated/Stub.php"]
     },
     "autoload-dev": {
         "psr-4": {

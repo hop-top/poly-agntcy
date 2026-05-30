@@ -1,4 +1,5 @@
 vendor/
 composer.lock
 packages/*/vendor/
-packages/dir/src/Generated/
+packages/dir/src/Generated/*
+!packages/dir/src/Generated/Stub.php
