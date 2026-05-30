@@ -1,0 +1,9 @@
+parameters:
+    level: max
+    paths:
+        - packages/dir/src
+        - packages/dir-laravel/src
+        - packages/dir-symfony/src
+        - packages/dir-spiffe/src
+    excludePaths:
+        - packages/dir/src/Generated
