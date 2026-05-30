@@ -1,0 +1,11 @@
+name: release-please-preflight
+on:
+  pull_request:
+    branches: [main]
+jobs:
+  preflight:
+    uses: hop-top/.github/.github/workflows/release-please-preflight.yml@v0
+    with:
+      config-file: .github/release-please-config.json
+      manifest-file: .github/.release-please-manifest.json
+      publish-file: .github/workflows/publish.yml

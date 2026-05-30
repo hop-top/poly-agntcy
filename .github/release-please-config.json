@@ -1,0 +1,80 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "release-type": "go",
+  "versioning": "prerelease",
+  "prerelease-type": "alpha.0",
+  "bump-minor-pre-major": true,
+  "bump-patch-for-minor-pre-major": true,
+  "packages": {
+    "go": {
+      "release-type": "go",
+      "component": "go",
+      "package-name": "hop.top/agntcy"
+    },
+    "go/spiffe": {
+      "release-type": "go",
+      "component": "go-spiffe",
+      "package-name": "hop.top/agntcy/spiffe"
+    },
+    "rs/poly-agntcy-dir": {
+      "release-type": "rust",
+      "component": "rs",
+      "package-name": "poly-agntcy-dir"
+    },
+    "rs/poly-agntcy-dir-spiffe": {
+      "release-type": "rust",
+      "component": "rs-spiffe",
+      "package-name": "poly-agntcy-dir-spiffe"
+    },
+    "php/packages/dir": {
+      "release-type": "php",
+      "component": "php",
+      "package-name": "poly-agntcy/dir"
+    },
+    "php/packages/dir-laravel": {
+      "release-type": "php",
+      "component": "php-laravel",
+      "package-name": "poly-agntcy/dir-laravel"
+    },
+    "php/packages/dir-symfony": {
+      "release-type": "php",
+      "component": "php-symfony",
+      "package-name": "poly-agntcy/dir-symfony"
+    },
+    "php/packages/dir-spiffe": {
+      "release-type": "php",
+      "component": "php-spiffe",
+      "package-name": "poly-agntcy/dir-spiffe"
+    },
+    "ts/packages/dir-next": {
+      "release-type": "node",
+      "component": "ts-next",
+      "package-name": "@poly-agntcy/dir-next"
+    },
+    "ts/packages/dir-hono": {
+      "release-type": "node",
+      "component": "ts-hono",
+      "package-name": "@poly-agntcy/dir-hono"
+    },
+    "ts/packages/dir-express": {
+      "release-type": "node",
+      "component": "ts-express",
+      "package-name": "@poly-agntcy/dir-express"
+    },
+    "py/packages/dir-fastapi": {
+      "release-type": "python",
+      "component": "py-fastapi",
+      "package-name": "poly-agntcy-dir-fastapi"
+    },
+    "py/packages/dir-flask": {
+      "release-type": "python",
+      "component": "py-flask",
+      "package-name": "poly-agntcy-dir-flask"
+    },
+    "py/packages/dir-django": {
+      "release-type": "python",
+      "component": "py-django",
+      "package-name": "poly-agntcy-dir-django"
+    }
+  }
+}
