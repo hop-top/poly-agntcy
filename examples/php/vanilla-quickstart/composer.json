@@ -1,0 +1,15 @@
+{
+    "name": "poly-agntcy/example-vanilla-quickstart",
+    "type": "project",
+    "description": "Vanilla PHP quickstart for poly-agntcy/dir",
+    "license": "Apache-2.0",
+    "require": {
+        "php": "^8.2",
+        "poly-agntcy/dir": "*"
+    },
+    "repositories": [
+        { "type": "path", "url": "../../../php/packages/dir" }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

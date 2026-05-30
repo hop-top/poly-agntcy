@@ -1,0 +1,16 @@
+parameters:
+    agntcy.endpoint: '%env(string:AGNTCY_ENDPOINT)%'
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    PolyAgntcy\Dir\Client:
+        arguments:
+            $endpoint: '%agntcy.endpoint%'
+            $credentials: '@PolyAgntcy\Dir\InsecureCredentials'
+
+    PolyAgntcy\Dir\InsecureCredentials: ~
+
+    App\Command\RegisterInventoryCommand: ~
