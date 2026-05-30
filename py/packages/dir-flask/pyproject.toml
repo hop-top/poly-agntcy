@@ -5,7 +5,7 @@ description = "Flask adapter for AGNTCY Directory Service"
 license = "Apache-2.0"
 requires-python = ">=3.12"
 dependencies = [
-  "agntcy-dir",
+  "agntcy-dir>=0.3,<2",
   "flask>=3.0",
 ]
 
