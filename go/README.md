@@ -1,105 +1,62 @@
-# poly-agntcy
+# agntcy (Go)
 
-Polyglot SDK suite for the AGNTCY Agent Directory Service (DIR)
+Go SDK + CLI for the AGNTCY Agent Directory Service (DIR).
 
 ## Install
 
-```sh
-go install hop.top/agntcy/poly-agntcy@latest
-```
-
-Or download a binary from
-[Releases](https://hop.top/agntcy/poly-agntcy/releases).
-
-## Usage
+SDK:
 
 ```sh
-poly-agntcy --help
-poly-agntcy --version
+go get hop.top/agntcy
 ```
 
-### Output formats
+CLI:
 
 ```sh
-poly-agntcy --format json
-poly-agntcy --format yaml
+go install hop.top/agntcy/cmd/agntcy@latest
 ```
 
-## Configuration
+## SDK usage
 
-Config file: `~/.config/poly-agntcy/config.yaml`
+```go
+import "hop.top/agntcy/dir"
 
-Environment variables prefixed with `POLY_AGNTCY_` are
-also recognized.
+client, err := dir.NewClient(dir.Options{
+    Endpoint:    "https://dir.example.org",
+    Credentials: dir.InsecureCredentials{}, // dev/test only
+})
+if err != nil {
+    return err
+}
 
-## Getting started
+res, err := client.Register(ctx, dir.RegisterParams{
+    Agent: &dir.AgentDescriptor{Name: "demo", Endpoint: "https://demo.example.org"},
+})
+```
 
-Toolchain is pinned in `mise.toml`. Install everything in one go:
+Available methods: `Register`, `Discover`, `Describe`, `Publish`, `Verify`.
+
+## Credentials
+
+- `dir.InsecureCredentials{}` — no TLS, dev only.
+- `dir.TlsCredentials{Config: tlsCfg}` — stdlib `*tls.Config`.
+- `hop.top/agntcy/spiffe` submodule — SPIFFE-backed mTLS. See
+  [`spiffe/`](./spiffe).
+
+## CLI
 
 ```sh
-mise install                # installs Go (and other pinned tools)
-mise run install            # downloads ecosystem deps (go mod download)
-cp .env.example .env        # adapter defaults (telemetry, storage, queue, log, config)
+agntcy register --endpoint https://dir.example.org --name demo --agent-endpoint https://demo.example.org
+agntcy discover --endpoint https://dir.example.org --capability translate
+agntcy describe --endpoint https://dir.example.org --id <id>
+agntcy publish  --endpoint https://dir.example.org --id <id> --payload ./payload.bin
+agntcy verify   --endpoint https://dir.example.org --id <id> --signature ./sig.bin
 ```
-
-Optional — start telemetry services (otel-collector + jaeger):
-
-```sh
-docker compose -f .devcontainer/docker-compose.yml up -d
-open http://localhost:16686 # Jaeger UI for traces
-```
-
-## Tool versions
-
-Go toolchain, linters, and release tooling are pinned in
-`mise.toml` at the project root, inside a `# >>> kit-managed >>>`
-block tracked against poly-kit's central manifest. User-added tools
-above the marker are preserved verbatim.
-
-Refresh procedure (`kit init --check` / `kit init --update`) is
-documented in poly-kit's
-[templates/RUNBOOK-UPGRADE.md](https://github.com/hop-top/poly-kit/blob/main/templates/RUNBOOK-UPGRADE.md).
 
 ## Development
 
-Prerequisites: `mise` (installs the pinned Go toolchain), GNU Make.
-
 ```sh
-make setup    # download deps
-make check    # lint + test + links
-make build    # build binary
+make test   # go test ./...
+make vet    # go vet ./...
+make build  # builds bin/agntcy
 ```
-
-### Put `poly-agntcy` on your PATH
-
-```sh
-make symlink
-```
-
-`make symlink` builds the binary, walks `$PATH`, picks the first
-writable user-bin dir (in priority order: `$XDG_BIN_HOME`,
-`~/.local/bin`, `~/bin` on Unix; `%USERPROFILE%\bin`,
-`%USERPROFILE%\.local\bin`, `%LOCALAPPDATA%\Programs` on Windows),
-and links `bin/poly-agntcy` into it. On native Windows it writes a
-`.cmd` shim instead of a symlink to avoid the Admin / Developer
-Mode requirement.
-
-Subsequent `make build` runs auto-deploy because the link points
-at the live `./bin/poly-agntcy`.
-
-```sh
-make symlink                       # idempotent: no-op when already linked
-make symlink SYMLINK_DIR=/opt/bin  # override candidate-dir search
-make symlink FORCE=1               # replace a link pointing elsewhere
-```
-
-If no candidate dir is on `$PATH`, the command prints a hint
-asking you to add `$HOME/.local/bin` to `$PATH` or pass
-`SYMLINK_DIR=`.
-
-## License
-
-See [LICENSE](LICENSE).
-
----
-Maintained by Jad Bitar.

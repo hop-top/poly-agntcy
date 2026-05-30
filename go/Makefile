@@ -1,51 +1,14 @@
-.PHONY: build test lint links check clean setup symlink release \
-       promote promote-alpha promote-beta promote-rc \
-       promote-release
-
-check: lint test links
+.PHONY: build test vet clean
 
 build:
 	mkdir -p bin
-	go build -buildvcs=false -o bin/poly-agntcy .
-
-# symlink installs ./bin/poly-agntcy into the first writable user-bin
-# directory on $PATH ($XDG_BIN_HOME → ~/.local/bin → ~/bin on Unix;
-# %USERPROFILE%\bin → %USERPROFILE%\.local\bin → %LOCALAPPDATA%\Programs
-# on Windows, where the link is a .cmd shim because os.Symlink there
-# requires Admin or Developer Mode). Override the target dir with
-# `make symlink SYMLINK_DIR=/path/to/bin`. Re-running with the same
-# target is a no-op; pass FORCE=1 to replace a link with a different
-# target.
-symlink: build
-	kit symlink --target ./bin/poly-agntcy --name poly-agntcy \
-		$(if $(SYMLINK_DIR),--dir $(SYMLINK_DIR),) \
-		$(if $(FORCE),--force,)
+	go build -o bin/agntcy ./cmd/agntcy
 
 test:
-	go test -buildvcs=false ./...
+	go test ./...
 
-lint:
-	golangci-lint run ./...
-
-links:
-	@if command -v lychee >/dev/null 2>&1; then \
-		lychee --no-progress .; \
-	else \
-		echo "lychee not installed; skipping link check"; \
-	fi
+vet:
+	go vet ./...
 
 clean:
-	rm -rf bin/ dist/
-
-setup:
-	go mod download
-	@command -v lychee >/dev/null 2>&1 || cargo install lychee
-
-release:
-	goreleaser release --clean
-
-promote:
-	@scripts/promote-release.sh
-
-promote-alpha promote-beta promote-rc promote-release:
-	@scripts/promote-release.sh $(subst promote-,,$@)
+	rm -rf bin/
