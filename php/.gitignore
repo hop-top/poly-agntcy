@@ -1,1 +1,4 @@
+vendor/
+composer.lock
+packages/*/vendor/
 packages/dir/src/Generated/
