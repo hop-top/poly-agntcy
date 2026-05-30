@@ -1,0 +1,31 @@
+{
+    "name": "poly-agntcy/dir",
+    "type": "library",
+    "description": "AGNTCY Directory Service SDK + CLI for PHP",
+    "license": "Apache-2.0",
+    "require": {
+        "php": "^8.2",
+        "psr/http-client": "^1.0",
+        "psr/http-message": "^1.0|^2.0",
+        "psr/log": "^3.0",
+        "symfony/console": "^6.4|^7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11"
+    },
+    "autoload": {
+        "psr-4": {
+            "PolyAgntcy\\Dir\\": "src/"
+        },
+        "files": ["src/Generated/Stub.php"]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PolyAgntcy\\Dir\\Tests\\": "tests/"
+        }
+    },
+    "bin": ["bin/agntcy"],
+    "config": {
+        "sort-packages": true
+    }
+}

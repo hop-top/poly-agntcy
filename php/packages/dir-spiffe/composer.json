@@ -1,0 +1,16 @@
+{
+    "name": "poly-agntcy/dir-spiffe",
+    "type": "library",
+    "description": "SPIFFE-backed credentials for poly-agntcy/dir",
+    "license": "Apache-2.0",
+    "require": {
+        "php": "^8.2",
+        "poly-agntcy/dir": "*"
+    },
+    "autoload": {
+        "psr-4": { "PolyAgntcy\\Dir\\Spiffe\\": "src/" }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}

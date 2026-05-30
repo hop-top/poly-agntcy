@@ -1,0 +1,23 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+$autoloadCandidates = [
+    __DIR__.'/../vendor/autoload.php',
+    __DIR__.'/../../../vendor/autoload.php',
+    __DIR__.'/../../../../vendor/autoload.php',
+];
+foreach ($autoloadCandidates as $candidate) {
+    if (is_file($candidate)) {
+        require_once $candidate;
+        break;
+    }
+}
+
+use Symfony\Component\Console\Application;
+use PolyAgntcy\Dir\Cli\DiscoverCommand;
+
+$app = new Application('agntcy', '0.1.0-alpha.0');
+$app->add(new DiscoverCommand());
+$app->run();
