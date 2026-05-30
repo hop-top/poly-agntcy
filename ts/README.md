@@ -1,66 +1,37 @@
-# poly-agntcy
+# poly-agntcy TypeScript adapters
 
-Polyglot SDK suite for the AGNTCY Agent Directory Service (DIR)
+pnpm workspace shipping framework adapters for the AGNTCY Directory
+Service.
+
+## Packages
+
+| Package | Role |
+|---------|------|
+| [`@poly-agntcy/dir-next`](packages/dir-next) | Next.js Route Handler + `agntcy` CLI |
+| [`@poly-agntcy/dir-hono`](packages/dir-hono) | Hono plugin |
+| [`@poly-agntcy/dir-express`](packages/dir-express) | Express middleware |
+
+All three are alpha. Function/type contracts are stable; runtime stubs
+respond with HTTP 501 until upstream `agntcy-dir` wire integration lands.
 
 ## Install
 
 ```sh
-npm install -g poly-agntcy
+pnpm install --config.auto-install-peers=false --ignore-scripts
 ```
 
-## Usage
+`--config.auto-install-peers=false --ignore-scripts` works around a
+transitive Buf Schema Registry auth error pulled in by `agntcy-dir`. See
+each package README for the same note in adopter context.
+
+## Build / test
 
 ```sh
-poly-agntcy --help
-poly-agntcy --version
-```
-
-### Output formats
-
-```sh
-poly-agntcy --format json
-poly-agntcy --format yaml
-```
-
-## Getting started
-
-Toolchain is pinned in `mise.toml`. Install everything in one go:
-
-```sh
-mise install                # installs Node + pnpm (and other pinned tools)
-mise run install            # installs ecosystem deps (pnpm install)
-cp .env.example .env        # adapter defaults (telemetry, storage, queue, log, config)
-```
-
-Optional — start telemetry services (otel-collector + jaeger):
-
-```sh
-docker compose -f .devcontainer/docker-compose.yml up -d
-open http://localhost:16686 # Jaeger UI for traces
-```
-
-## Tool versions
-
-Node, pnpm, linters, and release tooling are pinned in `mise.toml`
-inside a kit-managed block. Refresh procedure
-(`kit init --check` / `kit init --update`) is documented in
-poly-kit's
-[templates/RUNBOOK-UPGRADE.md](https://github.com/hop-top/poly-kit/blob/main/templates/RUNBOOK-UPGRADE.md).
-
-## Development
-
-Prerequisites: `mise` (installs the pinned Node + pnpm toolchain),
-[Task](https://taskfile.dev).
-
-```sh
-task setup    # install deps
-task check    # lint + test
-task build    # compile TypeScript
+pnpm -r build                                    # compile each package
+pnpm -r exec tsc --noEmit -p tsconfig.json       # typecheck
+pnpm -r test                                     # vitest
 ```
 
 ## License
 
-See [LICENSE](LICENSE).
-
----
-Maintained by Jad Bitar.
+Apache-2.0
