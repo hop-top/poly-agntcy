@@ -7,6 +7,6 @@ export interface Options {
 export function agntcyDirPlugin(opts: Options): MiddlewareHandler {
   if (!opts.endpoint) throw new Error("endpoint required");
   return async (c) => {
-    return c.json({ ok: true });
+    return c.json({ error: "agntcy-dir wire integration pending" }, 501);
   };
 }

@@ -12,9 +12,13 @@ export function createDirectoryRouteHandler(opts: Options): RouteHandlers {
   }
   return {
     POST: async (_req: Request): Promise<Response> => {
-      return new Response(JSON.stringify({ ok: true }), {
-        headers: { "Content-Type": "application/json" },
-      });
+      return new Response(
+        JSON.stringify({ error: "agntcy-dir wire integration pending" }),
+        {
+          status: 501,
+          headers: { "content-type": "application/json" },
+        },
+      );
     },
   };
 }
