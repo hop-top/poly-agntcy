@@ -18,6 +18,21 @@ importers:
         specifier: ^2.1
         version: 2.1.9(@types/node@22.19.19)
 
+  packages/dir-hono:
+    devDependencies:
+      '@types/node':
+        specifier: ^22
+        version: 22.19.19
+      hono:
+        specifier: ^4
+        version: 4.12.23
+      typescript:
+        specifier: ^5.6
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1
+        version: 2.1.9(@types/node@22.19.19)
+
   packages/dir-next:
     dependencies:
       commander:
@@ -392,6 +407,10 @@ packages:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
+
+  hono@4.12.23:
+    resolution: {integrity: sha512-eIaZ9qDgu7XV0pxOCrg7/WhnQ6Ivm22UcxhXx/A3dcbqbbYgBEkc6e/J/s7j2tS96zoB0S9VBdLwQNCWwUo4LA==}
+    engines: {node: '>=16.9.0'}
 
   loupe@3.2.1:
     resolution: {integrity: sha512-CdzqowRJCeLU72bHvWqwRBBlLcMEtIvGrlvef74kMnV2AolS9Y8xUv1I0U/MNAWMhBlKIoyuEgoJ0t/bbwHbLQ==}
@@ -785,6 +804,8 @@ snapshots:
 
   fsevents@2.3.3:
     optional: true
+
+  hono@4.12.23: {}
 
   loupe@3.2.1: {}
 
