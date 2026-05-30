@@ -18,19 +18,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # >>> kit-managed: toolchain >>>
-      - uses: jdx/mise-action@v2
+      - uses: shivammathur/setup-php@v2
         with:
-          install: true
-          cache: true
-      - run: mise run install
-      # <<< kit-managed: toolchain <<<
+          php-version: '8.2'
+          tools: composer
 
       - name: composer install
-        run: mise exec -- make setup
+        working-directory: php
+        run: composer install --no-interaction --prefer-dist
 
       - name: phpstan
-        run: mise exec -- make lint
+        working-directory: php
+        run: composer run lint --no-interaction
 
   test:
     name: Test
@@ -38,16 +37,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # >>> kit-managed: toolchain >>>
-      - uses: jdx/mise-action@v2
+      - uses: shivammathur/setup-php@v2
         with:
-          install: true
-          cache: true
-      - run: mise run install
-      # <<< kit-managed: toolchain <<<
+          php-version: '8.2'
+          tools: composer
 
       - name: composer install
-        run: mise exec -- make setup
+        working-directory: php
+        run: composer install --no-interaction --prefer-dist
 
       - name: phpunit
-        run: mise exec -- make test
+        working-directory: php
+        run: composer test

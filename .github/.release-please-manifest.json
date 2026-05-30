@@ -1,16 +1,16 @@
 {
   "go": "0.0.0",
   "go/spiffe": "0.0.0",
-  "rs/poly-agntcy-dir": "0.0.0",
-  "rs/poly-agntcy-dir-spiffe": "0.0.0",
+  "rs/poly-agntcy-dir": "0.1.0-alpha.0",
+  "rs/poly-agntcy-dir-spiffe": "0.1.0-alpha.0",
   "php/packages/dir": "0.0.0",
   "php/packages/dir-laravel": "0.0.0",
   "php/packages/dir-symfony": "0.0.0",
   "php/packages/dir-spiffe": "0.0.0",
-  "ts/packages/dir-next": "0.0.0",
-  "ts/packages/dir-hono": "0.0.0",
-  "ts/packages/dir-express": "0.0.0",
-  "py/packages/dir-fastapi": "0.0.0",
-  "py/packages/dir-flask": "0.0.0",
-  "py/packages/dir-django": "0.0.0"
+  "ts/packages/dir-next": "0.1.0-alpha.0",
+  "ts/packages/dir-hono": "0.1.0-alpha.0",
+  "ts/packages/dir-express": "0.1.0-alpha.0",
+  "py/packages/dir-fastapi": "0.1.0-alpha.0",
+  "py/packages/dir-flask": "0.1.0-alpha.0",
+  "py/packages/dir-django": "0.1.0-alpha.0"
 }
