@@ -1,13 +1,13 @@
 [package]
 name = "poly-agntcy-dir-spiffe"
-version.workspace = true
+version = "0.0.0"
 edition.workspace = true
 license.workspace = true
 repository.workspace = true
 description = "SPIFFE-backed credentials for poly-agntcy-dir"
 
 [dependencies]
-poly-agntcy-dir = { path = "../poly-agntcy-dir", version = "0.1.0-alpha.0" }
+poly-agntcy-dir = { path = "../poly-agntcy-dir", version = "0.0.0" }
 spiffe = { version = "0.15", default-features = false, features = ["workload-api-x509"] }
 rustls = "0.23"
 thiserror = "2"
