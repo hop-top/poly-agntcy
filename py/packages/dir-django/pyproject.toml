@@ -1,6 +1,6 @@
 [project]
 name = "poly-agntcy-dir-django"
-version = "0.1.0a0"
+version = "0.0.0"
 description = "Django adapter for AGNTCY Directory Service"
 license = "Apache-2.0"
 requires-python = ">=3.12"

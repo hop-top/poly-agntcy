@@ -1,6 +1,6 @@
 {
   "name": "@poly-agntcy/dir-hono",
-  "version": "0.1.0-alpha.0",
+  "version": "0.0.0",
   "description": "Hono plugin for AGNTCY Directory Service",
   "license": "Apache-2.0",
   "type": "module",
