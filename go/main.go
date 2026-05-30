@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	"hop.top/agntcy/poly-agntcy/cmd"
+	"hop.top/agntcy/cmd"
 )
 
 func main() {

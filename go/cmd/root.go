@@ -6,7 +6,7 @@ import (
 
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
-	"hop.top/agntcy/poly-agntcy/internal/version"
+	"hop.top/agntcy/internal/version"
 )
 
 var rootCmd = &cobra.Command{
