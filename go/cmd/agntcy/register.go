@@ -1,7 +1,6 @@
 package main
 
 import (
-	"context"
 	"fmt"
 
 	"github.com/spf13/cobra"
@@ -23,7 +22,7 @@ func newRegisterCmd() *cobra.Command {
 			if err != nil {
 				return err
 			}
-			res, err := client.Register(context.Background(), dir.RegisterParams{
+			res, err := client.Register(cmd.Context(), dir.RegisterParams{
 				Agent: &dir.AgentDescriptor{Name: name, Endpoint: endpointURL},
 			})
 			if err != nil {

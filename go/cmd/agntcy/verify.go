@@ -1,7 +1,6 @@
 package main
 
 import (
-	"context"
 	"fmt"
 	"io"
 	"os"
@@ -37,7 +36,7 @@ func newVerifyCmd() *cobra.Command {
 					return err
 				}
 			}
-			res, err := client.Verify(context.Background(), dir.VerifyParams{ID: id, Signature: sig})
+			res, err := client.Verify(cmd.Context(), dir.VerifyParams{ID: id, Signature: sig})
 			if err != nil {
 				return err
 			}

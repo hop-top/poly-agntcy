@@ -1,7 +1,6 @@
 package main
 
 import (
-	"context"
 	"fmt"
 
 	"github.com/spf13/cobra"
@@ -22,7 +21,7 @@ func newDiscoverCmd() *cobra.Command {
 			if err != nil {
 				return err
 			}
-			res, err := client.Discover(context.Background(), dir.DiscoverParams{Capability: capability})
+			res, err := client.Discover(cmd.Context(), dir.DiscoverParams{Capability: capability})
 			if err != nil {
 				return err
 			}

@@ -1,7 +1,6 @@
 package main
 
 import (
-	"context"
 	"fmt"
 
 	"github.com/spf13/cobra"
@@ -22,7 +21,7 @@ func newDescribeCmd() *cobra.Command {
 			if err != nil {
 				return err
 			}
-			res, err := client.Describe(context.Background(), dir.DescribeParams{ID: id})
+			res, err := client.Describe(cmd.Context(), dir.DescribeParams{ID: id})
 			if err != nil {
 				return err
 			}

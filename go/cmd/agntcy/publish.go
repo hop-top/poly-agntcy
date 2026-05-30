@@ -1,7 +1,6 @@
 package main
 
 import (
-	"context"
 	"fmt"
 	"io"
 	"os"
@@ -37,7 +36,7 @@ func newPublishCmd() *cobra.Command {
 					return err
 				}
 			}
-			res, err := client.Publish(context.Background(), dir.PublishParams{ID: id, Payload: payload})
+			res, err := client.Publish(cmd.Context(), dir.PublishParams{ID: id, Payload: payload})
 			if err != nil {
 				return err
 			}
