@@ -1,0 +1,21 @@
+version: v2
+inputs:
+  - module: buf.build/agntcy/dir
+plugins:
+  # Go
+  - remote: buf.build/protocolbuffers/go
+    out: ../go/internal/proto
+    opt: paths=source_relative
+  - remote: buf.build/connectrpc/go
+    out: ../go/internal/proto
+    opt: paths=source_relative
+  # Rust
+  - remote: buf.build/community/neoeinstein-prost
+    out: ../rs/poly-agntcy-dir/src/proto
+  - remote: buf.build/community/neoeinstein-tonic
+    out: ../rs/poly-agntcy-dir/src/proto
+  # PHP
+  - remote: buf.build/protocolbuffers/php
+    out: ../php/packages/dir/src/Generated
+  - remote: buf.build/grpc/php
+    out: ../php/packages/dir/src/Generated
