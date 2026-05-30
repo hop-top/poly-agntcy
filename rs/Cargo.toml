@@ -2,6 +2,7 @@
 resolver = "2"
 members = [
   "poly-agntcy-dir",
+  "poly-agntcy-dir-spiffe",
 ]
 
 [workspace.package]
