@@ -1,0 +1,19 @@
+{
+    "name": "poly-agntcy/dir-symfony",
+    "type": "symfony-bundle",
+    "description": "Symfony bundle for poly-agntcy/dir",
+    "license": "Apache-2.0",
+    "require": {
+        "php": "^8.2",
+        "poly-agntcy/dir": "*",
+        "symfony/framework-bundle": "^6.4|^7.0",
+        "symfony/config": "^6.4|^7.0",
+        "symfony/dependency-injection": "^6.4|^7.0"
+    },
+    "autoload": {
+        "psr-4": { "PolyAgntcy\\Dir\\Symfony\\": "src/" }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
