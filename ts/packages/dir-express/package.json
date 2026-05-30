@@ -18,7 +18,7 @@
     "lint": "tsc --noEmit"
   },
   "peerDependencies": {
-    "agntcy-dir": "*",
+    "agntcy-dir": ">=0.3",
     "express": "^4 || ^5"
   },
   "devDependencies": {
