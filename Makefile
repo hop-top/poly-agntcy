@@ -1,13 +1,19 @@
-.PHONY: build test lint links check setup
+.PHONY: setup gen lint test cross links check
 
-check: lint test links
+setup:
+	mise run install_all
 
-build test lint setup:
-	$(MAKE) -C go $@
-	$(MAKE) -C rs $@
-	$(MAKE) -C php $@
-	$(MAKE) -C ts $@
-	$(MAKE) -C py $@
+gen:
+	mise run gen
+
+lint:
+	mise run lint
+
+test:
+	mise run test
+
+cross:
+	mise run cross
 
 links:
 	@if command -v lychee >/dev/null 2>&1; then \
@@ -15,3 +21,5 @@ links:
 	else \
 		echo "lychee not installed; skipping link check"; \
 	fi
+
+check: lint test links
