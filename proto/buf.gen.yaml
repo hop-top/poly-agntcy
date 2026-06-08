@@ -1,6 +1,18 @@
 version: v2
+
+# Upstream buf.build/agntcy/dir doesn't declare go_package on its .proto
+# files. Buf managed mode injects one at generation time so protoc-gen-go
+# and protoc-gen-connect-go know where to place Go imports.
+managed:
+  enabled: true
+  override:
+    - file_option: go_package_prefix
+      value: hop.top/agntcy/internal/proto
+      module: buf.build/agntcy/dir
+
 inputs:
   - module: buf.build/agntcy/dir
+
 plugins:
   # Go
   - remote: buf.build/protocolbuffers/go

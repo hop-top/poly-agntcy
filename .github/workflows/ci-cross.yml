@@ -23,7 +23,6 @@ jobs:
           cache: true
 
       - name: Regenerate protobuf stubs
-        continue-on-error: true
         run: mise run gen
 
       - name: Run cross-language integration

@@ -982,7 +982,7 @@ dependencies = [
 
 [[package]]
 name = "poly-agntcy-dir"
-version = "0.1.0-alpha.0"
+version = "0.0.0"
 dependencies = [
  "anyhow",
  "clap",
@@ -995,7 +995,7 @@ dependencies = [
 
 [[package]]
 name = "poly-agntcy-dir-spiffe"
-version = "0.1.0-alpha.0"
+version = "0.0.0"
 dependencies = [
  "poly-agntcy-dir",
  "rustls",
