@@ -29,7 +29,7 @@ jobs:
 
       - name: phpstan
         working-directory: sdk/php
-        run: composer run lint --no-interaction
+        run: vendor/bin/phpstan analyse
 
   test:
     name: Test
@@ -48,4 +48,4 @@ jobs:
 
       - name: phpunit
         working-directory: sdk/php
-        run: composer test
+        run: vendor/bin/phpunit

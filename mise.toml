@@ -14,7 +14,7 @@ run = [
   "(cd sdk/rs && cargo clippy --workspace -- -D warnings)",
   "(cd ts && pnpm -r lint)",
   "(cd py && uv run ruff check)",
-  "(cd sdk/php && composer run lint --no-interaction)",
+  "(cd sdk/php && vendor/bin/phpstan analyse)",
 ]
 
 [tasks.test]
@@ -24,7 +24,7 @@ run = [
   "(cd sdk/rs && cargo test --workspace)",
   "(cd ts && pnpm -r test)",
   "(cd py && uv run pytest)",
-  "(cd sdk/php && composer test)",
+  "(cd sdk/php && vendor/bin/phpunit)",
 ]
 
 [tasks.cross]
@@ -51,8 +51,8 @@ node = "22"
 pnpm = "9"
 python = "3.13"
 uv = "0.5"
-rust = "1.84"
-golangci-lint = "1.62"
+rust = "1.85"
+golangci-lint = "2.12"
 ruff = "0.8"
 lychee = "0.18"
 hadolint = "2.12"
