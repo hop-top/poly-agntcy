@@ -37,7 +37,7 @@ Per-language work happens inside its dir. Cross-cutting changes (protobuf, workf
 - Follow existing conventions in each language root.
 - Run linters before submitting: `make lint`.
 - Keep changes focused; one concern per PR.
-- Read the [design spec](docs/superpowers/specs/2026-05-30-poly-agntcy-design.md) for architecture decisions.
+- Read the [architecture overview](docs/ARCHITECTURE.md) or the full [design spec](docs/superpowers/specs/2026-05-30-poly-agntcy-design.md).
 
 ## Commit messages
 

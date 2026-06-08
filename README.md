@@ -28,10 +28,7 @@ make cross    # bring up local DIR + run cross-lang example
 
 ## Docs
 
-- [Design spec](docs/superpowers/specs/2026-05-30-poly-agntcy-design.md) — architecture, decisions log, repo layout
-- [Architecture decisions](docs/adr/) — six ADRs covering scope, protobuf, SPIFFE, release, layout, naming
-- [Vanity import](docs/vanity-import.md) — `hop.top/agntcy` Go module resolution
-- [Release runbook](docs/release-runbook.md) — secrets, OIDC, Packagist setup
+Start at the [docs index](docs/) — organized by what you're trying to do (install a package, run your first call, understand the design, operate a release).
 
 ## Contributing
 
