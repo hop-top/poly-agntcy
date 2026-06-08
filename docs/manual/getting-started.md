@@ -87,7 +87,7 @@ func main() {
 ### Rust
 
 ```rust
-use agntcy_dir::{Client, Options, InsecureCredentials, DiscoverParams};
+use hop_top_agntcy_dir::{Client, Options, InsecureCredentials, DiscoverParams};
 use std::sync::Arc;
 
 #[tokio::main]
@@ -124,9 +124,9 @@ var_dump($res->agents);
 
 ```ts
 // app/api/agntcy/route.ts
-import { createDirectoryHandler } from "@hop-top/agntcy-dir-next";
+import { createDirectoryRouteHandler } from "@hop-top/agntcy-dir-next";
 
-export const POST = createDirectoryHandler({
+export const POST = createDirectoryRouteHandler({
   endpoint: "http://localhost:8888",
 });
 ```

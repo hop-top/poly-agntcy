@@ -1,14 +1,23 @@
 # hop-top/agntcy Python workspace
 
-uv workspace hosting three framework adapters for the AGNTCY Directory Service.
+uv workspace hosting three framework adapters for the AGNTCY Directory
+Service. Per ADR-0001, Python ships adapter packages on top of the
+upstream `agntcy-dir` SDK rather than a first-party Python SDK.
 
-## Packages
+## Adapters
 
-- `packages/dir-fastapi` — FastAPI `APIRouter` factory + `agntcy` Typer CLI.
-- `packages/dir-flask` — Flask `Blueprint` factory.
-- `packages/dir-django` — Django app providing URLs and views.
+- `../../adapters/fastapi` — `agntcy-dir-fastapi`: FastAPI `APIRouter`
+  factory + `agntcy` Typer CLI.
+- `../../adapters/flask` — `agntcy-dir-flask`: Flask `Blueprint`
+  factory.
+- `../../adapters/django` — `agntcy-dir-django`: Django app providing
+  URLs and views.
 
 All three depend on upstream `agntcy-dir` (pre-1.0; pinned `>=0.3,<2`).
+Published distribution names use the vendor prefix
+(`hop-top-agntcy-dir-fastapi` etc., per ADR-0008); importable Python
+modules drop the vendor prefix for cleaner imports
+(`from agntcy_dir_fastapi import …`).
 
 ## Requirements
 
@@ -17,27 +26,35 @@ All three depend on upstream `agntcy-dir` (pre-1.0; pinned `>=0.3,<2`).
 
 ## Common commands
 
+Run from `sdk/py/`:
+
 ```sh
-uv sync                       # install workspace + dev deps
-uv run pytest                 # run all package tests
-uv run ruff check packages    # lint
-uv run ruff format packages   # format
-uv run mypy packages          # typecheck (strict)
+uv sync --all-packages                          # install workspace + adapter runtime deps
+uv run pytest --import-mode=importlib --rootdir=. ../../adapters
+uv run ruff check ../../adapters                # lint
+uv run ruff format ../../adapters               # format
+uv run mypy ../../adapters/fastapi/src \
+          ../../adapters/flask/src \
+          ../../adapters/django/src             # typecheck (strict)
 ```
 
-Run a single package's tests:
+Run a single adapter's tests:
 
 ```sh
-uv run pytest packages/dir-fastapi
+uv run pytest --import-mode=importlib --rootdir=. ../../adapters/fastapi
 ```
 
 ## Layout
 
 ```
-py/
-  pyproject.toml          # workspace root + mypy/ruff config
-  packages/
-    dir-fastapi/
-    dir-flask/
-    dir-django/
+sdk/py/
+  pyproject.toml               # workspace root + mypy/ruff/pytest config
+  README.md                    # this file
+adapters/
+  fastapi/                     # hop-top-agntcy-dir-fastapi
+  flask/                       # hop-top-agntcy-dir-flask
+  django/                      # hop-top-agntcy-dir-django
 ```
+
+Workspace members declared in `pyproject.toml` `[tool.uv.workspace]`
+point at `../../adapters/<framework>/` via relative paths.
