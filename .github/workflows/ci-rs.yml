@@ -29,6 +29,9 @@ jobs:
         with:
           workspaces: sdk/rs
 
+      - name: Install rustfmt + clippy components
+        run: mise exec -- rustup component add rustfmt clippy
+
       - name: cargo fmt
         working-directory: sdk/rs
         run: mise exec -- cargo fmt --all -- --check
