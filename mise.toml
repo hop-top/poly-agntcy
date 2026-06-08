@@ -4,7 +4,7 @@
 
 [tasks.gen]
 description = "Regenerate protobuf stubs via buf"
-run = "(cd proto && buf generate)"
+run = "(cd contracts && buf generate)"
 
 [tasks.lint]
 description = "Lint all enabled languages"
@@ -38,7 +38,7 @@ run = [
   "(cd ts && pnpm install)",
   "(cd py && uv sync)",
   "(cd php && composer install --no-interaction) || true",
-  "(cd proto && buf dep update) || true",
+  "(cd contracts && buf dep update) || true",
 ]
 
 # >>> kit-managed >>>
