@@ -6,8 +6,8 @@ import (
 	"github.com/spiffe/go-spiffe/v2/spiffeid"
 	"github.com/spiffe/go-spiffe/v2/workloadapi"
 
+	"hop.top/agntcy-go-spiffe"
 	"hop.top/agntcy/dir"
-	"hop.top/agntcy/spiffe"
 )
 
 func TestCredentials_ImplementsInterface(t *testing.T) {

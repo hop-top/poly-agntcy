@@ -76,10 +76,19 @@ Negative:
 - Mirror count grows from 5 to 12 active (9 new + 3 retained:
   `agntcy`, `agntcy-rs`, `agntcy-php`). `agntcy-ts` and `agntcy-py`
   archived.
-- Go vanity contract gains an extra meta tag: `hop.top/agntcy/spiffe`
-  now resolves to `hop-top/agntcy-go-spiffe`, not a subdirectory of
-  `hop-top/agntcy`. The hop.top vanity record must serve a second
-  `<meta name="go-import">` for this path.
+- The Go SPIFFE module path changes from `hop.top/agntcy/spiffe`
+  to `hop.top/agntcy-go-spiffe`. Reason: the `hop.top` vanity
+  worker only resolves single-segment names (`hop.top/<pkg>` →
+  `github.com/hop-top/<pkg>` by convention; multi-segment paths
+  like `hop.top/agntcy/spiffe` fall through to the main site
+  proxy and don't get a `go-import` meta). With per-package
+  mirrors, the spiffe content no longer lives under the
+  `hop-top/agntcy` mirror, so the multi-segment path can't
+  resolve via the convention. Renaming to a single-segment module
+  path aligns with the convention: `hop.top/agntcy-go-spiffe?go-get=1`
+  → `github.com/hop-top/agntcy-go-spiffe` automatically.
+  Pre-1.0; the only in-repo consumer was the test in
+  `sdk/go/spiffe/credentials_test.go`.
 - Per-package mirrors are visually noisier in the `hop-top` org
   listing. Counterargument: noise reflects reality (14 packages
   exist; pretending they're 5 mirrors was the original mistake).
@@ -98,18 +107,29 @@ In this PR:
 
 1. Update `.github/workflows/publish.yml` `ecosystems` map: each of
    the 14 components gets its own `mirror:` entry.
-2. Update `docs/vanity-import.md` published-modules table to show
-   the new `hop.top/agntcy/spiffe` → `hop-top/agntcy-go-spiffe`
-   mapping; flag that vanity infra needs a second meta tag entry.
-3. Mark ADR-0009's Status as `Superseded by ADR-0010`.
-4. Update ADR index in `docs/adr/README.md`.
+2. Rename Go SPIFFE module: `sdk/go/spiffe/go.mod` from
+   `hop.top/agntcy/spiffe` to `hop.top/agntcy-go-spiffe`. Update
+   the one in-repo consumer
+   (`sdk/go/spiffe/credentials_test.go`) and release-please-config
+   `package-name`. Single-segment vanity resolves via convention.
+3. Update `docs/vanity-import.md` published-modules table to the
+   new `hop.top/agntcy-go-spiffe` mapping.
+4. Mark ADR-0009's Status as `Superseded by ADR-0010`.
+5. Update ADR index in `docs/adr/README.md`.
 
 Out of band (manual ops, not in this PR):
 
 - `gh repo archive hop-top/agntcy-ts hop-top/agntcy-py` — retire
   the aggregated mirrors.
-- Add `<meta>` entry for `hop.top/agntcy/spiffe` to the hop.top
-  vanity-record source of truth (out-of-repo infra).
+
+Vanity infra needs **no manual change**: the `hop.top` Cloudflare
+worker falls back to convention (`hop.top/<pkg>` →
+`github.com/hop-top/<pkg>`) when no formula override exists.
+`hop.top/agntcy-go-spiffe` will resolve automatically the moment
+the mirror exists. Same for all other new single-segment mirror
+names — `hop.top/agntcy-rs-spiffe` etc. aren't used as Go module
+paths (only Go uses vanity), but the convention works for any
+single-segment name.
 
 Verification post-merge (next release cycle):
 

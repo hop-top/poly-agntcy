@@ -19,7 +19,7 @@ Forcing the SPIFFE dep penalises the common case.
 Core packages depend only on stdlib TLS (`crypto/tls`, `rustls`, OpenSSL
 ext). SPIFFE ships as a separate optional package per language:
 
-- `hop.top/agntcy/spiffe` (separate Go module, own `go.mod`)
+- `hop.top/agntcy-go-spiffe` (separate Go module, own `go.mod`; renamed from `hop.top/agntcy/spiffe` per ADR-0010 to match single-segment vanity convention)
 - `hop-top-agntcy-dir-spiffe` (Rust crate)
 - `hop-top/agntcy-dir-spiffe` (Composer package — includes a ~300 LOC
   minimal workload-API client over UDS gRPC; no maintained PHP SPIFFE lib

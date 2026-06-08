@@ -46,7 +46,7 @@ If you want SPIFFE-backed credentials instead of plain TLS, install the extensio
 
 | Language | Command |
 |---|---|
-| Go | `go get hop.top/agntcy/spiffe` |
+| Go | `go get hop.top/agntcy-go-spiffe` |
 | Rust | `cargo add hop-top-agntcy-dir-spiffe` |
 | PHP | `composer require hop-top/agntcy-dir-spiffe` |
 

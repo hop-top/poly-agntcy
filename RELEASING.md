@@ -15,7 +15,7 @@ Fourteen release tracks, one per publishable package. See [the design spec §6](
 | Component | Path | Ecosystem | Registry name |
 |---|---|---|---|
 | `go` | `sdk/go/` | go | `hop.top/agntcy` |
-| `go-spiffe` | `sdk/go/spiffe/` | go | `hop.top/agntcy/spiffe` |
+| `go-spiffe` | `sdk/go/spiffe/` | go | `hop.top/agntcy-go-spiffe` |
 | `rs` | `sdk/rs/hop-top-agntcy-dir/` | rust | `hop-top-agntcy-dir` |
 | `rs-spiffe` | `sdk/rs/hop-top-agntcy-dir-spiffe/` | rust | `hop-top-agntcy-dir-spiffe` |
 | `php` | `sdk/php/packages/dir/` | php | `hop-top/agntcy-dir` |

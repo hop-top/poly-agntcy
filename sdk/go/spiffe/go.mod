@@ -1,4 +1,4 @@
-module hop.top/agntcy/spiffe
+module hop.top/agntcy-go-spiffe
 
 go 1.25.0
 
