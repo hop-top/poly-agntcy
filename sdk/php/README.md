@@ -1,16 +1,14 @@
-# poly-agntcy PHP workspace
+# poly-agntcy PHP SDK
 
-Composer workspace hosting the PHP SDK suite for the AGNTCY Agent
-Directory Service (DIR). Path repositories link the four packages so
-all of them resolve from source during development.
+Composer workspace hosting the PHP SDK packages for the AGNTCY Agent
+Directory Service (DIR). Path repositories link the packages so they
+resolve from source during development. Framework adapters live under
+`adapters/` once promoted from `php/packages/`.
 
 ## Packages
 
 - `packages/dir` — core SDK + CLI (`PolyAgntcy\Dir\`). Credentials
   (Insecure / TLS / SPIFFE handle), `Client`, and the `agntcy` CLI.
-- `packages/dir-laravel` — Laravel `ServiceProvider` + `Agntcy` facade
-  for `poly-agntcy/dir`.
-- `packages/dir-symfony` — Symfony bundle exposing `Client` via DI.
 - `packages/dir-spiffe` — SPIFFE-backed `SpiffeCredentials`
   (Workload API client, X.509 SVID + trust bundle).
 
@@ -20,7 +18,7 @@ all of them resolve from source during development.
 composer install --no-interaction
 ```
 
-Symlinks the four packages into `vendor/poly-agntcy/`.
+Symlinks the SDK packages into `vendor/poly-agntcy/`.
 
 ## Test
 

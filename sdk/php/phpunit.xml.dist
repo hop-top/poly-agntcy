@@ -7,8 +7,6 @@
     <testsuites>
         <testsuite name="dir">
             <directory>packages/dir/tests</directory>
-            <directory>packages/dir-laravel/tests</directory>
-            <directory>packages/dir-symfony/tests</directory>
             <directory>packages/dir-spiffe/tests</directory>
         </testsuite>
     </testsuites>

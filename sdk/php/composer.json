@@ -7,14 +7,10 @@
     "require": {
         "php": "^8.2",
         "poly-agntcy/dir": "@dev",
-        "poly-agntcy/dir-laravel": "@dev",
-        "poly-agntcy/dir-symfony": "@dev",
         "poly-agntcy/dir-spiffe": "@dev"
     },
     "repositories": [
         { "type": "path", "url": "packages/dir" },
-        { "type": "path", "url": "packages/dir-laravel" },
-        { "type": "path", "url": "packages/dir-symfony" },
         { "type": "path", "url": "packages/dir-spiffe" }
     ],
     "require-dev": {
