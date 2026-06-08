@@ -25,6 +25,9 @@ jobs:
       - name: Regenerate protobuf stubs
         run: mise run gen
 
-      - name: Run cross-language integration
+      - name: Run e2e conformance smoke
+        # continue-on-error stays until e2e/conformance/ has real wire
+        # tests for all SDKs (see e2e/conformance/README.md → "Current
+        # limitations"). Removing this is a follow-up task.
         continue-on-error: true
-        run: mise run cross
+        run: mise run conformance

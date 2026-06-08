@@ -12,7 +12,7 @@ Common symptoms across all five language packages.
 
 | Symptom | Likely cause | Fix |
 |---|---|---|
-| `connection refused` to `localhost:8888` | DIR service not running | `cd examples/cross && docker compose up -d` |
+| `connection refused` to `localhost:8888` | DIR service not running | `cd e2e/conformance && docker compose up -d` |
 | `x509: certificate signed by unknown authority` | `TlsCredentials` against a dev cert | Use `InsecureCredentials` in dev or supply a custom CA pool |
 | `transport: authentication handshake failed` | TLS endpoint but credentials are `InsecureCredentials` | Switch to `TlsCredentials` or `SpiffeCredentials` |
 | All requests succeed with HTTP 501 | Adapter stub body | TypeScript adapters return 501 until upstream wire integration lands; see [release notes](../../CHANGELOG.md) |

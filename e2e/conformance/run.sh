@@ -12,7 +12,7 @@ for _ in {1..30}; do
   sleep 1
 done
 
-(cd "$HERE/../.." && go run ./examples/cross/go-agent.go --endpoint "$ENDPOINT" register)
+(cd "$HERE/../.." && go run ./e2e/conformance/go-agent.go --endpoint "$ENDPOINT" register)
 
 uv run "$HERE/py-agent.py" --endpoint "$ENDPOINT" discover --capability inventory
 

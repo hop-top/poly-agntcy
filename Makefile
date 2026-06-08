@@ -1,4 +1,4 @@
-.PHONY: setup gen lint test cross links check
+.PHONY: setup gen lint test conformance links check
 
 setup:
 	mise run install_all
@@ -12,8 +12,8 @@ lint:
 test:
 	mise run test
 
-cross:
-	mise run cross
+conformance:
+	mise run conformance
 
 links:
 	@if command -v lychee >/dev/null 2>&1; then \

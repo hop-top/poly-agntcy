@@ -27,9 +27,9 @@ run = [
   "(cd sdk/php && vendor/bin/phpunit)",
 ]
 
-[tasks.cross]
-description = "Cross-language integration example"
-run = "(cd examples/cross && ./run.sh)"
+[tasks.conformance]
+description = "Cross-language e2e conformance smoke (see e2e/conformance/README.md for current limitations)"
+run = "(cd e2e/conformance && ./run.sh)"
 
 [tasks.install_all]
 description = "Install deps across all languages incl PHP + buf"
