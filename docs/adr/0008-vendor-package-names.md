@@ -39,7 +39,7 @@ Published package names use the vendor + product-line pattern:
 | npm | `@hop-top/agntcy-<thing>` | `@hop-top/agntcy-dir-next`, `@hop-top/agntcy-dir-hono`, `@hop-top/agntcy-dir-express` |
 | Packagist | `hop-top/agntcy-<thing>` | `hop-top/agntcy-dir`, `hop-top/agntcy-dir-laravel`, `hop-top/agntcy-dir-symfony`, `hop-top/agntcy-dir-spiffe` |
 | PyPI | `hop-top-agntcy-<thing>` | `hop-top-agntcy-dir-fastapi`, `hop-top-agntcy-dir-flask`, `hop-top-agntcy-dir-django` |
-| Go vanity | `hop.top/agntcy[/<thing>]` (unchanged) | `hop.top/agntcy/dir`, `hop.top/agntcy/spiffe` |
+| Go vanity | `hop.top/agntcy` (SDK) + `hop.top/agntcy-go-<thing>` (extensions) | `hop.top/agntcy/dir` (SDK subpackage), `hop.top/agntcy-go-spiffe` (separate module per ADR-0010) |
 | PHP PSR-4 | `HopTop\Agntcy\Dir\…` | `HopTop\Agntcy\Dir\Client`, `HopTop\Agntcy\Dir\Laravel\…` |
 | Python module | `agntcy_dir_<framework>` | `agntcy_dir_fastapi`, `agntcy_dir_flask`, `agntcy_dir_django` |
 

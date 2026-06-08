@@ -17,7 +17,7 @@
     "sdk/go/spiffe": {
       "release-type": "go",
       "component": "go-spiffe",
-      "package-name": "hop.top/agntcy/spiffe"
+      "package-name": "hop.top/agntcy-go-spiffe"
     },
     "sdk/rs/hop-top-agntcy-dir": {
       "release-type": "rust",
