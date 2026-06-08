@@ -55,6 +55,7 @@ impl Credentials for SpiffeCredentials {
 }
 
 #[cfg(test)]
+#[allow(deprecated)]
 mod tests {
     use super::*;
 

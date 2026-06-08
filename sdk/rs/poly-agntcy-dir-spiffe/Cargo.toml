@@ -6,6 +6,9 @@ license.workspace = true
 repository.workspace = true
 description = "SPIFFE-backed credentials for poly-agntcy-dir"
 
+[lints]
+workspace = true
+
 [dependencies]
 poly-agntcy-dir = { path = "../poly-agntcy-dir", version = "0.0.0" }
 spiffe = { version = "0.15", default-features = false, features = ["workload-api-x509"] }

@@ -15,6 +15,9 @@ name = "agntcy"
 path = "src/bin/agntcy.rs"
 required-features = ["cli"]
 
+[lints]
+workspace = true
+
 [dependencies]
 tonic = { version = "0.12", features = ["tls", "tls-native-roots"] }
 prost = "0.13"
