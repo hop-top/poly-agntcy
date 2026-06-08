@@ -50,7 +50,7 @@ The PSR-4 autoloader isn't regenerated. Run:
 composer dump-autoload
 ```
 
-If that doesn't fix it, the `Stub.php` autoload (in `php/packages/dir/composer.json` `autoload.files`) may have been removed. Restore it from `git`.
+If that doesn't fix it, the `Stub.php` autoload (in `sdk/php/packages/dir/composer.json` `autoload.files`) may have been removed. Restore it from `git`.
 
 ### TypeScript: `Cannot find module 'agntcy-dir'`
 
