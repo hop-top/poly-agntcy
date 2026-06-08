@@ -16,18 +16,20 @@ jobs:
       PACKAGIST_TOKEN:      ${{ secrets.PACKAGIST_TOKEN }}
       GH_MIRROR_PAT:        ${{ secrets.GH_MIRROR_PAT }}
     with:
+      # One mirror per package (ADR-0010). Each tag → its own mirror;
+      # no overwrite races.
       ecosystems: |
         go:          { dir: sdk/go,                                 ecosystem: go,  mirror: hop-top/agntcy }
-        go-spiffe:   { dir: sdk/go/spiffe,                          ecosystem: go,  mirror: hop-top/agntcy }
-        rs:          { dir: sdk/rs/hop-top-agntcy-dir,              ecosystem: rs,  package: hop-top-agntcy-dir,        mirror: hop-top/agntcy-rs }
-        rs-spiffe:   { dir: sdk/rs/hop-top-agntcy-dir-spiffe,       ecosystem: rs,  package: hop-top-agntcy-dir-spiffe, mirror: hop-top/agntcy-rs }
-        php:         { dir: sdk/php/packages/dir,                   ecosystem: php, package: "hop-top/agntcy-dir",         mirror: hop-top/agntcy-php }
-        php-laravel: { dir: adapters/laravel,                       ecosystem: php, package: "hop-top/agntcy-dir-laravel", mirror: hop-top/agntcy-php }
-        php-symfony: { dir: adapters/symfony,                       ecosystem: php, package: "hop-top/agntcy-dir-symfony", mirror: hop-top/agntcy-php }
-        php-spiffe:  { dir: sdk/php/packages/dir-spiffe,            ecosystem: php, package: "hop-top/agntcy-dir-spiffe",  mirror: hop-top/agntcy-php }
-        ts-next:     { dir: adapters/next,                          ecosystem: ts,  package: "@hop-top/agntcy-dir-next",   mirror: hop-top/agntcy-ts }
-        ts-hono:     { dir: adapters/hono,                          ecosystem: ts,  package: "@hop-top/agntcy-dir-hono",   mirror: hop-top/agntcy-ts }
-        ts-express:  { dir: adapters/express,                       ecosystem: ts,  package: "@hop-top/agntcy-dir-express",mirror: hop-top/agntcy-ts }
-        py-fastapi:  { dir: adapters/fastapi,                       ecosystem: py,  package: hop-top-agntcy-dir-fastapi,   mirror: hop-top/agntcy-py }
-        py-flask:    { dir: adapters/flask,                         ecosystem: py,  package: hop-top-agntcy-dir-flask,     mirror: hop-top/agntcy-py }
-        py-django:   { dir: adapters/django,                        ecosystem: py,  package: hop-top-agntcy-dir-django,    mirror: hop-top/agntcy-py }
+        go-spiffe:   { dir: sdk/go/spiffe,                          ecosystem: go,  mirror: hop-top/agntcy-go-spiffe }
+        rs:          { dir: sdk/rs/hop-top-agntcy-dir,              ecosystem: rs,  package: hop-top-agntcy-dir,            mirror: hop-top/agntcy-rs }
+        rs-spiffe:   { dir: sdk/rs/hop-top-agntcy-dir-spiffe,       ecosystem: rs,  package: hop-top-agntcy-dir-spiffe,     mirror: hop-top/agntcy-rs-spiffe }
+        php:         { dir: sdk/php/packages/dir,                   ecosystem: php, package: "hop-top/agntcy-dir",          mirror: hop-top/agntcy-php }
+        php-spiffe:  { dir: sdk/php/packages/dir-spiffe,            ecosystem: php, package: "hop-top/agntcy-dir-spiffe",   mirror: hop-top/agntcy-php-spiffe }
+        php-laravel: { dir: adapters/laravel,                       ecosystem: php, package: "hop-top/agntcy-dir-laravel",  mirror: hop-top/agntcy-php-laravel }
+        php-symfony: { dir: adapters/symfony,                       ecosystem: php, package: "hop-top/agntcy-dir-symfony",  mirror: hop-top/agntcy-php-symfony }
+        ts-next:     { dir: adapters/next,                          ecosystem: ts,  package: "@hop-top/agntcy-dir-next",    mirror: hop-top/agntcy-ts-next }
+        ts-hono:     { dir: adapters/hono,                          ecosystem: ts,  package: "@hop-top/agntcy-dir-hono",    mirror: hop-top/agntcy-ts-hono }
+        ts-express:  { dir: adapters/express,                       ecosystem: ts,  package: "@hop-top/agntcy-dir-express", mirror: hop-top/agntcy-ts-express }
+        py-fastapi:  { dir: adapters/fastapi,                       ecosystem: py,  package: hop-top-agntcy-dir-fastapi,    mirror: hop-top/agntcy-py-fastapi }
+        py-flask:    { dir: adapters/flask,                         ecosystem: py,  package: hop-top-agntcy-dir-flask,      mirror: hop-top/agntcy-py-flask }
+        py-django:   { dir: adapters/django,                        ecosystem: py,  package: hop-top-agntcy-dir-django,     mirror: hop-top/agntcy-py-django }

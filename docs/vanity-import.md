@@ -31,14 +31,19 @@ without the `sdk/go/` prefix.
 
 ## Path → repo subtree mapping (published modules)
 
-| Module path | Mirror subtree | Source subtree |
+Per ADR-0010, each module path has its own mirror (no shared trees).
+
+| Module path | Mirror | Source subtree |
 |---|---|---|
 | `hop.top/agntcy` | `hop-top/agntcy/` | `poly-agntcy/sdk/go/` |
-| `hop.top/agntcy/spiffe` | `hop-top/agntcy/spiffe/` | `poly-agntcy/sdk/go/spiffe/` |
+| `hop.top/agntcy/spiffe` | `hop-top/agntcy-go-spiffe/` | `poly-agntcy/sdk/go/spiffe/` |
+
+Each module has its own vanity meta tag (`hop.top/agntcy/spiffe` is
+not a subdirectory of `hop-top/agntcy`; the hop.top infra serves
+two `<meta name="go-import">` records).
 
 Tags follow the `<component>/v<version>` convention (e.g.
-`go/v0.1.0`, `go-spiffe/v0.1.0`). The Go toolchain reads tags
-matching the prefix corresponding to each module's subdirectory.
+`go/v0.1.0`, `go-spiffe/v0.1.0`).
 
 **Internal-only modules** (not part of the vanity/release contract,
 not safe to depend on from outside the repo):
@@ -55,18 +60,19 @@ moves it from "internal-only" to the published row.
 
 ## Mirror status
 
-> **Status (2026-06-08): unreliable.** The mirror push for
-> `hop-top/agntcy` is broken under multi-component tags. The shared
-> `mirror-subtree.yml@main` workflow does `git push mirror --force`
-> per tag, and poly-agntcy maps two components (`go`, `go-spiffe`)
-> onto the same mirror. Subsequent tags overwrite prior ones; the
-> SDK tree disappears after a `go-spiffe/vX.Y.Z` tag follows a
-> `go/vX.Y.Z` tag. See [ADR-0009](adr/0009-mirror-publish-topology.md).
->
-> Result: `go get hop.top/agntcy@latest` is unreliable until
-> ADR-0010 lands and fixes the topology. Releases haven't been cut
-> yet (everything pinned at `0.0.0`), so no consumers are broken in
-> practice — but the pipeline must not run until the fix lands.
+Topology fixed per [ADR-0010](adr/0010-one-mirror-per-package.md):
+each module path resolves to its own mirror; no overwrite races.
+The shared `mirror-subtree.yml@main` calls `gh repo create` on
+first push, so new mirrors auto-provision when their component's
+first tag fires.
+
+Two operational steps remain (out-of-repo):
+
+1. **Vanity infra**: add a second `<meta name="go-import">` record
+   for `hop.top/agntcy/spiffe` pointing at `hop-top/agntcy-go-spiffe`.
+2. **Archive orphans**: `gh repo archive hop-top/agntcy-ts hop-top/agntcy-py`
+   — these were named optimistically under the old "per-language
+   mirror" framing and are no longer referenced by `publish.yml`.
 
 ## Verification
 
