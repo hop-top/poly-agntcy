@@ -1,0 +1,16 @@
+[workspace]
+resolver = "2"
+members = [
+  "poly-agntcy-dir",
+  "poly-agntcy-dir-spiffe",
+]
+
+[workspace.package]
+version = "0.0.0"
+edition = "2021"
+license = "Apache-2.0"
+repository = "https://github.com/hop-top/poly-agntcy"
+
+[workspace.lints.clippy]
+# tonic::Status is large by design; cost of boxing exceeds benefit here.
+result_large_err = "allow"

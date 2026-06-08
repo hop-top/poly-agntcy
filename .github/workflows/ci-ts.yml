@@ -3,10 +3,10 @@ name: CI (TypeScript)
 on:
   push:
     branches: [main]
-    paths: ["**.ts", "package.json", "package-lock.json", "pnpm-lock.yaml"]
+    paths: ["**.ts", "**/package.json", "**/package-lock.json", "**/pnpm-lock.yaml"]
   pull_request:
     branches: [main]
-    paths: ["**.ts", "package.json", "package-lock.json", "pnpm-lock.yaml"]
+    paths: ["**.ts", "**/package.json", "**/package-lock.json", "**/pnpm-lock.yaml"]
 
 permissions:
   contents: read
@@ -23,11 +23,15 @@ jobs:
         with:
           install: true
           cache: true
-      - run: mise run install
       # <<< kit-managed: toolchain <<<
 
+      - name: pnpm install
+        working-directory: ts
+        run: mise exec -- pnpm install --frozen-lockfile
+
       - name: Lint
-        run: mise exec -- pnpm run lint
+        working-directory: ts
+        run: mise exec -- pnpm -r lint
 
   test:
     name: Test
@@ -40,11 +44,15 @@ jobs:
         with:
           install: true
           cache: true
-      - run: mise run install
       # <<< kit-managed: toolchain <<<
 
+      - name: pnpm install
+        working-directory: ts
+        run: mise exec -- pnpm install --frozen-lockfile
+
       - name: Test
-        run: mise exec -- pnpm test
+        working-directory: ts
+        run: mise exec -- pnpm -r test
 
   build:
     name: Build
@@ -58,8 +66,12 @@ jobs:
         with:
           install: true
           cache: true
-      - run: mise run install
       # <<< kit-managed: toolchain <<<
 
+      - name: pnpm install
+        working-directory: ts
+        run: mise exec -- pnpm install --frozen-lockfile
+
       - name: Build
-        run: mise exec -- pnpm run build
+        working-directory: ts
+        run: mise exec -- pnpm -r build

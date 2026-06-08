@@ -1,0 +1,23 @@
+{
+    "name": "poly-agntcy/php-workspace",
+    "type": "project",
+    "license": "Apache-2.0",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^8.2",
+        "poly-agntcy/dir": "@dev",
+        "poly-agntcy/dir-spiffe": "@dev"
+    },
+    "repositories": [
+        { "type": "path", "url": "packages/dir" },
+        { "type": "path", "url": "packages/dir-spiffe" }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^11",
+        "phpstan/phpstan": "^2"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}

@@ -1,0 +1,31 @@
+version: "2"
+
+run:
+  timeout: 5m
+
+linters:
+  enable:
+    - govet
+    - errcheck
+    - staticcheck
+    - gosec
+    - unused
+    - ineffassign
+  settings:
+    gosec:
+      severity: medium
+  exclusions:
+    rules:
+      # CLI commands intentionally open user-supplied paths and write to
+      # stdout where ignoring write errors is idiomatic.
+      - path: cmd/agntcy/
+        linters:
+          - errcheck
+          - gosec
+      # Generated code never lints clean against project rules.
+      - path: gen/
+        linters:
+          - errcheck
+          - gosec
+          - staticcheck
+          - unused

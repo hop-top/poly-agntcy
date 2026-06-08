@@ -53,7 +53,7 @@ See [docs/release-runbook.md](docs/release-runbook.md) for the secret inventory,
 
 When the AGNTCY DIR spec moves forward:
 
-1. Edit the BSR ref in [`proto/buf.yaml`](proto/buf.yaml).
+1. Edit the BSR ref in [`contracts/buf.yaml`](contracts/buf.yaml).
 2. Run `mise run gen` to regenerate Go/Rust/PHP stubs.
 3. Fix per-language breakage.
 4. Open one PR with `BREAKING CHANGE:` trailer if the spec broke wire compat. release-please opens up to 14 standing PRs in response (or fewer if not every language was affected).

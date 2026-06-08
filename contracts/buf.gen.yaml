@@ -1,0 +1,33 @@
+version: v2
+
+# Upstream buf.build/agntcy/dir doesn't declare go_package on its .proto
+# files. Buf managed mode injects one at generation time so protoc-gen-go
+# and protoc-gen-connect-go know where to place Go imports.
+managed:
+  enabled: true
+  override:
+    - file_option: go_package_prefix
+      value: hop.top/agntcy/gen/go
+      module: buf.build/agntcy/dir
+
+inputs:
+  - module: buf.build/agntcy/dir
+
+plugins:
+  # Go
+  - remote: buf.build/protocolbuffers/go
+    out: ../gen/go
+    opt: paths=source_relative
+  - remote: buf.build/connectrpc/go
+    out: ../gen/go
+    opt: paths=source_relative
+  # Rust
+  - remote: buf.build/community/neoeinstein-prost
+    out: ../gen/rs
+  - remote: buf.build/community/neoeinstein-tonic
+    out: ../gen/rs
+  # PHP
+  - remote: buf.build/protocolbuffers/php
+    out: ../gen/php
+  - remote: buf.build/grpc/php
+    out: ../gen/php

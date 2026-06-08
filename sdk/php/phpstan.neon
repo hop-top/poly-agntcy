@@ -1,0 +1,13 @@
+parameters:
+    level: 6
+    reportUnmatchedIgnoredErrors: false
+    ignoreErrors:
+        # Pre-existing pedantic findings, tracked separately.
+        - identifier: method.unused
+        - identifier: return.unusedType
+    treatPhpDocTypesAsCertain: false
+    paths:
+        - packages/dir/src
+        - packages/dir-spiffe/src
+    excludePaths:
+        - packages/dir/src/Generated
