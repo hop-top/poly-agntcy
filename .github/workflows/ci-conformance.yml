@@ -1,4 +1,4 @@
-name: CI (Cross-Lang)
+name: CI (Conformance)
 
 on:
   pull_request:
@@ -10,8 +10,8 @@ permissions:
   contents: read
 
 jobs:
-  cross:
-    name: Cross-language integration
+  conformance:
+    name: Cross-language conformance smoke
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
