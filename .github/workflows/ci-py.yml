@@ -27,15 +27,15 @@ jobs:
 
       - name: uv sync
         working-directory: sdk/py
-        run: mise exec -- uv sync
+        run: mise exec -- uv sync --all-packages
 
       - name: Ruff check
         working-directory: sdk/py
-        run: mise exec -- uv run ruff check .
+        run: mise exec -- uv run ruff check ../../adapters
 
       - name: Ruff format check
         working-directory: sdk/py
-        run: mise exec -- uv run ruff format --check .
+        run: mise exec -- uv run ruff format --check ../../adapters
 
   typecheck:
     name: Type Check
@@ -52,11 +52,11 @@ jobs:
 
       - name: uv sync
         working-directory: sdk/py
-        run: mise exec -- uv sync
+        run: mise exec -- uv sync --all-packages
 
       - name: Mypy
         working-directory: sdk/py
-        run: mise exec -- uv run mypy .
+        run: mise exec -- uv run mypy ../../adapters/fastapi/src ../../adapters/flask/src ../../adapters/django/src
 
   test:
     name: Test
@@ -73,8 +73,8 @@ jobs:
 
       - name: uv sync
         working-directory: sdk/py
-        run: mise exec -- uv sync
+        run: mise exec -- uv sync --all-packages
 
       - name: Pytest
         working-directory: sdk/py
-        run: mise exec -- uv run pytest --cov -v
+        run: mise exec -- uv run pytest --import-mode=importlib --rootdir=. --cov -v ../../adapters

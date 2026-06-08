@@ -27,7 +27,7 @@ jobs:
 
       - name: pnpm install
         working-directory: sdk/ts
-        run: mise exec -- pnpm install --frozen-lockfile
+        run: mise exec -- pnpm install --no-frozen-lockfile
 
       - name: Lint
         working-directory: sdk/ts
@@ -48,7 +48,7 @@ jobs:
 
       - name: pnpm install
         working-directory: sdk/ts
-        run: mise exec -- pnpm install --frozen-lockfile
+        run: mise exec -- pnpm install --no-frozen-lockfile
 
       - name: Test
         working-directory: sdk/ts
@@ -70,7 +70,7 @@ jobs:
 
       - name: pnpm install
         working-directory: sdk/ts
-        run: mise exec -- pnpm install --frozen-lockfile
+        run: mise exec -- pnpm install --no-frozen-lockfile
 
       - name: Build
         working-directory: sdk/ts

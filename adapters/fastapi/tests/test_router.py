@@ -1,7 +1,7 @@
 import pytest
+from agntcy_dir_fastapi import create_directory_router
 from fastapi import FastAPI
 from fastapi.testclient import TestClient
-from agntcy_dir_fastapi import create_directory_router
 
 
 def test_router_mounts() -> None:

@@ -1,6 +1,6 @@
 import pytest
-from flask import Flask
 from agntcy_dir_flask import create_directory_blueprint
+from flask import Flask
 
 
 def test_blueprint_mounts() -> None:

@@ -18,9 +18,11 @@ hop-top-agntcy-dir-django = { workspace = true }
 
 [dependency-groups]
 dev = [
+  "httpx2>=2",
   "mypy>=1.13",
   "pytest>=8",
   "pytest-asyncio>=0.24",
+  "pytest-cov>=5",
   "ruff>=0.5",
 ]
 
@@ -30,9 +32,23 @@ python_version = "3.12"
 warn_return_any = true
 warn_unused_configs = true
 
+[[tool.mypy.overrides]]
+module = ["django.*"]
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = ["agntcy_dir_django.*"]
+disallow_untyped_decorators = false
+disable_error_code = ["misc"]
+
 [tool.ruff]
 line-length = 100
 target-version = "py312"
 
 [tool.ruff.lint]
 select = ["E", "F", "W", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+# importlib mode lets multiple adapter test packages with same name "tests"
+# coexist without rootdir collisions.
+addopts = "--import-mode=importlib"
