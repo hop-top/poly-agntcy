@@ -1,6 +1,6 @@
 # ADR-0005: Layout — L3 flat-per-lang, TS/Py adapter-only
 
-- Status: Accepted
+- Status: Superseded by ADR-0007
 - Date: 2026-05-30
 - Deciders: jadb
 
