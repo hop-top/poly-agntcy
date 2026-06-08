@@ -7,27 +7,29 @@ managed:
   enabled: true
   override:
     - file_option: go_package_prefix
-      value: hop.top/agntcy/internal/proto
+      value: hop.top/agntcy/gen/go
       module: buf.build/agntcy/dir
 
 inputs:
   - module: buf.build/agntcy/dir
 
 plugins:
-  # Go
+  # Go — output stays under the Go module root so `hop.top/agntcy/gen/go/...`
+  # resolves without a workspace. Move to repo-root `gen/go/` in phase 4 when
+  # the Go module gets reshaped under a `go.work` at repo root.
   - remote: buf.build/protocolbuffers/go
-    out: ../go/internal/proto
+    out: ../go/gen/go
     opt: paths=source_relative
   - remote: buf.build/connectrpc/go
-    out: ../go/internal/proto
+    out: ../go/gen/go
     opt: paths=source_relative
   # Rust
   - remote: buf.build/community/neoeinstein-prost
-    out: ../rs/poly-agntcy-dir/src/proto
+    out: ../gen/rs
   - remote: buf.build/community/neoeinstein-tonic
-    out: ../rs/poly-agntcy-dir/src/proto
+    out: ../gen/rs
   # PHP
   - remote: buf.build/protocolbuffers/php
-    out: ../php/packages/dir/src/Generated
+    out: ../gen/php
   - remote: buf.build/grpc/php
-    out: ../php/packages/dir/src/Generated
+    out: ../gen/php
