@@ -9,7 +9,8 @@ run = "(cd contracts && buf generate)"
 [tasks.lint]
 description = "Lint all enabled languages"
 run = [
-  "(cd go && golangci-lint run ./...)",
+  "(cd sdk/go && golangci-lint run ./...)",
+  "(cd cmd/agntcy && golangci-lint run ./...)",
   "(cd sdk/rs && cargo clippy --workspace -- -D warnings)",
   "(cd ts && pnpm -r lint)",
   "(cd py && uv run ruff check)",
@@ -19,7 +20,7 @@ run = [
 [tasks.test]
 description = "Test all enabled languages"
 run = [
-  "(cd go && go test ./...)",
+  "go test ./sdk/go/... ./cmd/agntcy ./gen/go/...",
   "(cd sdk/rs && cargo test --workspace)",
   "(cd ts && pnpm -r test)",
   "(cd py && uv run pytest)",
@@ -33,7 +34,9 @@ run = "(cd examples/cross && ./run.sh)"
 [tasks.install_all]
 description = "Install deps across all languages incl PHP + buf"
 run = [
-  "(cd go && go mod download)",
+  "(cd sdk/go && go mod download)",
+  "(cd cmd/agntcy && go mod download)",
+  "(cd gen/go && go mod download)",
   "(cd sdk/rs && cargo fetch)",
   "(cd ts && pnpm install)",
   "(cd py && uv sync)",
