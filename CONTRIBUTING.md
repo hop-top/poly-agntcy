@@ -1,34 +1,45 @@
 # Contributing to poly-agntcy
 
-Thanks for your interest in contributing!
+Thanks for your interest in contributing.
 
-## Getting Started
+## Getting started
 
 1. Fork the repository
 2. Clone your fork locally
 3. Create a feature branch: `git checkout -b feat/my-change`
 4. Make your changes
-5. Run tests: `task test`
-6. Commit using
-   [Conventional Commits](https://conventionalcommits.org)
+5. Run tests: `make test`
+6. Commit using [Conventional Commits](https://conventionalcommits.org)
 7. Push and open a Pull Request
 
-## Development Setup
+## Development setup
 
 ```sh
-task setup
+make setup
 ```
 
-This installs dependencies and configures the local
-environment.
+Equivalent to `mise run install_all` — installs all language toolchains and dependencies (Go, Rust, PHP, Node, Python, buf). Requires [mise](https://mise.jdx.dev) to be installed.
 
-## Code Style
+## Repo shape
 
-- Follow existing conventions in the codebase
-- Run linters before submitting: `task lint`
-- Keep changes focused; one concern per PR
+Five language roots under one repo:
 
-## Commit Messages
+- `go/` — first-party Go SDK (`hop.top/agntcy`) + `agntcy` CLI
+- `rs/` — first-party Rust workspace (`poly-agntcy-dir`, `poly-agntcy-dir-spiffe`)
+- `php/` — first-party PHP packages (`poly-agntcy/dir{,-laravel,-symfony,-spiffe}`)
+- `ts/` — TypeScript adapters (`@poly-agntcy/dir-{next,hono,express}`) wrapping the official `agntcy-dir` npm package
+- `py/` — Python adapters (`poly-agntcy-dir-{fastapi,flask,django}`) wrapping the official `agntcy-dir` PyPI package
+
+Per-language work happens inside its dir. Cross-cutting changes (protobuf, workflows, ADRs) live at the repo root.
+
+## Code style
+
+- Follow existing conventions in each language root.
+- Run linters before submitting: `make lint`.
+- Keep changes focused; one concern per PR.
+- Read the [design spec](docs/superpowers/specs/2026-05-30-poly-agntcy-design.md) for architecture decisions.
+
+## Commit messages
 
 Use [Conventional Commits](https://conventionalcommits.org):
 
@@ -39,7 +50,11 @@ docs: update readme
 test: add missing tests
 ```
 
-## Pull Requests
+The `scope` matches a [release-please component](.github/release-please-config.json): `go`, `go-spiffe`, `rs`, `rs-spiffe`, `php`, `php-laravel`, `php-symfony`, `php-spiffe`, `ts-next`, `ts-hono`, `ts-express`, `py-fastapi`, `py-flask`, `py-django`. Scopeless commits trigger no release.
+
+Breaking changes use the `!` suffix or a `BREAKING CHANGE:` footer per the spec.
+
+## Pull requests
 
 - Reference related issues in the PR description
 - Keep PRs small and reviewable
@@ -52,7 +67,6 @@ test: add missing tests
 - Use issue templates when available
 - Provide reproduction steps for bugs
 
-## Code of Conduct
+## Code of conduct
 
-Be respectful and constructive. We are all here to build
-something great together.
+See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).

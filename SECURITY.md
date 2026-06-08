@@ -5,7 +5,7 @@
 If you discover a security vulnerability, please report it
 responsibly. Do NOT open a public issue.
 
-Send an email to **jadb@users.noreply.github.com** with:
+Send an email to **me@jadb.io** with:
 
 - Description of the vulnerability
 - Steps to reproduce
@@ -20,7 +20,7 @@ Send an email to **jadb@users.noreply.github.com** with:
 
 ## Supported Versions
 
-Only the latest release is actively supported with
+Only the latest release of each package is actively supported with
 security patches.
 
 ## Disclosure Policy
