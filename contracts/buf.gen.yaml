@@ -14,14 +14,12 @@ inputs:
   - module: buf.build/agntcy/dir
 
 plugins:
-  # Go — output stays under the Go module root so `hop.top/agntcy/gen/go/...`
-  # resolves without a workspace. Move to repo-root `gen/go/` in phase 4 when
-  # the Go module gets reshaped under a `go.work` at repo root.
+  # Go
   - remote: buf.build/protocolbuffers/go
-    out: ../go/gen/go
+    out: ../gen/go
     opt: paths=source_relative
   - remote: buf.build/connectrpc/go
-    out: ../go/gen/go
+    out: ../gen/go
     opt: paths=source_relative
   # Rust
   - remote: buf.build/community/neoeinstein-prost
