@@ -17,13 +17,13 @@ For TS and Python core DIR access, use AGNTCY's official SDKs:
 
 ## Quickstart
 
-One example per shipped package lives under [`examples/`](examples/) — register an identity, publish a descriptor, discover a peer. A cross-language integration harness sits at [`examples/cross/`](examples/cross/).
+One example per shipped package lives under [`examples/`](examples/) — register an identity, publish a descriptor, discover a peer. A cross-language conformance smoke harness sits at [`e2e/conformance/`](e2e/conformance/) (see its README for current limitations).
 
 ```sh
-make setup    # install all toolchains via mise
-make test     # run every language's test suite
-make lint     # run every language's linter
-make cross    # bring up local DIR + run cross-lang example
+make setup        # install all toolchains via mise
+make test         # run every language's test suite
+make lint         # run every language's linter
+make conformance  # bring up local DIR + run cross-lang smoke
 ```
 
 ## Docs

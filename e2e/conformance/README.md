@@ -26,8 +26,8 @@ SDKs interoperate at the wire level.
 ## Current limitations
 
 1. Only Go actually talks to DIR. Python and PHP "agents" are stubs.
-2. The CI step that runs this suite (`mise run cross` in
-   `.github/workflows/ci-cross.yml`) carries
+2. The CI step that runs this suite (`mise run conformance` in
+   `.github/workflows/ci-conformance.yml`) carries
    `continue-on-error: true` — failures don't block merge. So the
    "ship-blocking gate" property the ADR envisions doesn't hold yet.
 3. Rust and TypeScript SDKs aren't exercised at all.
