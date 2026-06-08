@@ -7,7 +7,7 @@ ALLOWED_HOSTS = ["*"]
 INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.auth",
-    "poly_agntcy_dir_django",
+    "agntcy_dir_django",
 ]
 
 ROOT_URLCONF = "agntcy_demo.urls"

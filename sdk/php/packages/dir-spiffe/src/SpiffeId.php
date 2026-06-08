@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PolyAgntcy\Dir\Spiffe;
+namespace HopTop\Agntcy\Dir\Spiffe;
 
 /**
  * SPIFFE ID — URI of form spiffe://<trust-domain>/<path>.

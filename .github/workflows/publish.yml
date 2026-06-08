@@ -17,17 +17,17 @@ jobs:
       GH_MIRROR_PAT:        ${{ secrets.GH_MIRROR_PAT }}
     with:
       ecosystems: |
-        go:          { dir: go,                          ecosystem: go,  mirror: hop-top/agntcy }
-        go-spiffe:   { dir: go/spiffe,                   ecosystem: go,  mirror: hop-top/agntcy }
-        rs:          { dir: rs/poly-agntcy-dir,          ecosystem: rs,  package: poly-agntcy-dir,        mirror: hop-top/agntcy-rs }
-        rs-spiffe:   { dir: rs/poly-agntcy-dir-spiffe,   ecosystem: rs,  package: poly-agntcy-dir-spiffe, mirror: hop-top/agntcy-rs }
-        php:         { dir: php/packages/dir,            ecosystem: php, package: "poly-agntcy/dir",         mirror: hop-top/agntcy-php }
-        php-laravel: { dir: php/packages/dir-laravel,    ecosystem: php, package: "poly-agntcy/dir-laravel", mirror: hop-top/agntcy-php }
-        php-symfony: { dir: php/packages/dir-symfony,    ecosystem: php, package: "poly-agntcy/dir-symfony", mirror: hop-top/agntcy-php }
-        php-spiffe:  { dir: php/packages/dir-spiffe,     ecosystem: php, package: "poly-agntcy/dir-spiffe",  mirror: hop-top/agntcy-php }
-        ts-next:     { dir: ts/packages/dir-next,        ecosystem: ts,  package: "@poly-agntcy/dir-next",   mirror: hop-top/agntcy-ts }
-        ts-hono:     { dir: ts/packages/dir-hono,        ecosystem: ts,  package: "@poly-agntcy/dir-hono",   mirror: hop-top/agntcy-ts }
-        ts-express:  { dir: ts/packages/dir-express,     ecosystem: ts,  package: "@poly-agntcy/dir-express",mirror: hop-top/agntcy-ts }
-        py-fastapi:  { dir: py/packages/dir-fastapi,     ecosystem: py,  package: poly-agntcy-dir-fastapi,   mirror: hop-top/agntcy-py }
-        py-flask:    { dir: py/packages/dir-flask,       ecosystem: py,  package: poly-agntcy-dir-flask,     mirror: hop-top/agntcy-py }
-        py-django:   { dir: py/packages/dir-django,      ecosystem: py,  package: poly-agntcy-dir-django,    mirror: hop-top/agntcy-py }
+        go:          { dir: sdk/go,                                 ecosystem: go,  mirror: hop-top/agntcy }
+        go-spiffe:   { dir: sdk/go/spiffe,                          ecosystem: go,  mirror: hop-top/agntcy }
+        rs:          { dir: sdk/rs/hop-top-agntcy-dir,              ecosystem: rs,  package: hop-top-agntcy-dir,        mirror: hop-top/agntcy-rs }
+        rs-spiffe:   { dir: sdk/rs/hop-top-agntcy-dir-spiffe,       ecosystem: rs,  package: hop-top-agntcy-dir-spiffe, mirror: hop-top/agntcy-rs }
+        php:         { dir: sdk/php/packages/dir,                   ecosystem: php, package: "hop-top/agntcy-dir",         mirror: hop-top/agntcy-php }
+        php-laravel: { dir: adapters/laravel,                       ecosystem: php, package: "hop-top/agntcy-dir-laravel", mirror: hop-top/agntcy-php }
+        php-symfony: { dir: adapters/symfony,                       ecosystem: php, package: "hop-top/agntcy-dir-symfony", mirror: hop-top/agntcy-php }
+        php-spiffe:  { dir: sdk/php/packages/dir-spiffe,            ecosystem: php, package: "hop-top/agntcy-dir-spiffe",  mirror: hop-top/agntcy-php }
+        ts-next:     { dir: adapters/next,                          ecosystem: ts,  package: "@hop-top/agntcy-dir-next",   mirror: hop-top/agntcy-ts }
+        ts-hono:     { dir: adapters/hono,                          ecosystem: ts,  package: "@hop-top/agntcy-dir-hono",   mirror: hop-top/agntcy-ts }
+        ts-express:  { dir: adapters/express,                       ecosystem: ts,  package: "@hop-top/agntcy-dir-express",mirror: hop-top/agntcy-ts }
+        py-fastapi:  { dir: adapters/fastapi,                       ecosystem: py,  package: hop-top-agntcy-dir-fastapi,   mirror: hop-top/agntcy-py }
+        py-flask:    { dir: adapters/flask,                         ecosystem: py,  package: hop-top-agntcy-dir-flask,     mirror: hop-top/agntcy-py }
+        py-django:   { dir: adapters/django,                        ecosystem: py,  package: hop-top-agntcy-dir-django,    mirror: hop-top/agntcy-py }

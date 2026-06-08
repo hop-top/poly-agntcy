@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use PolyAgntcy\Dir\Client;
-use PolyAgntcy\Dir\Generated\Agent;
+use HopTop\Agntcy\Dir\Client;
+use HopTop\Agntcy\Dir\Generated\Agent;
 
 final class RegisterInventoryAgent extends Command
 {

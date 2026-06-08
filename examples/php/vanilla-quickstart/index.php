@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 require __DIR__.'/vendor/autoload.php';
 
-use PolyAgntcy\Dir\Client;
-use PolyAgntcy\Dir\Generated\Agent;
-use PolyAgntcy\Dir\InsecureCredentials;
+use HopTop\Agntcy\Dir\Client;
+use HopTop\Agntcy\Dir\Generated\Agent;
+use HopTop\Agntcy\Dir\InsecureCredentials;
 
 $endpoint   = getenv('AGNTCY_ENDPOINT') ?: 'http://localhost:8888';
 $capability = getenv('AGNTCY_CAPABILITY') ?: 'inventory';

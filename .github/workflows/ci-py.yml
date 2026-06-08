@@ -26,16 +26,16 @@ jobs:
       # <<< kit-managed: toolchain <<<
 
       - name: uv sync
-        working-directory: py
-        run: mise exec -- uv sync
+        working-directory: sdk/py
+        run: mise exec -- uv sync --all-packages
 
       - name: Ruff check
-        working-directory: py
-        run: mise exec -- uv run ruff check .
+        working-directory: sdk/py
+        run: mise exec -- uv run ruff check ../../adapters
 
       - name: Ruff format check
-        working-directory: py
-        run: mise exec -- uv run ruff format --check .
+        working-directory: sdk/py
+        run: mise exec -- uv run ruff format --check ../../adapters
 
   typecheck:
     name: Type Check
@@ -51,12 +51,12 @@ jobs:
       # <<< kit-managed: toolchain <<<
 
       - name: uv sync
-        working-directory: py
-        run: mise exec -- uv sync
+        working-directory: sdk/py
+        run: mise exec -- uv sync --all-packages
 
       - name: Mypy
-        working-directory: py
-        run: mise exec -- uv run mypy .
+        working-directory: sdk/py
+        run: mise exec -- uv run mypy ../../adapters/fastapi/src ../../adapters/flask/src ../../adapters/django/src
 
   test:
     name: Test
@@ -72,9 +72,9 @@ jobs:
       # <<< kit-managed: toolchain <<<
 
       - name: uv sync
-        working-directory: py
-        run: mise exec -- uv sync
+        working-directory: sdk/py
+        run: mise exec -- uv sync --all-packages
 
       - name: Pytest
-        working-directory: py
-        run: mise exec -- uv run pytest --cov -v
+        working-directory: sdk/py
+        run: mise exec -- uv run pytest --import-mode=importlib --rootdir=. --cov -v ../../adapters

@@ -1,0 +1,4 @@
+packages:
+  - "../../adapters/next"
+  - "../../adapters/hono"
+  - "../../adapters/express"

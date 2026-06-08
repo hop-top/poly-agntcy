@@ -1,7 +1,7 @@
 import os
 
 from flask import Flask
-from poly_agntcy_dir_flask import create_directory_blueprint
+from agntcy_dir_flask import create_directory_blueprint
 
 app = Flask(__name__)
 app.register_blueprint(
@@ -13,7 +13,7 @@ app.register_blueprint(
 
 @app.get("/")
 def root() -> dict[str, str]:
-    return {"hello": "poly-agntcy"}
+    return {"hello": "hop-top/agntcy"}
 
 
 if __name__ == "__main__":

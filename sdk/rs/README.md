@@ -4,16 +4,16 @@ Rust SDK for the AGNTCY Agent Directory Service (DIR).
 
 ## Workspace
 
-- `poly-agntcy-dir` — core SDK crate. Async gRPC `Client` for DIR
+- `hop-top-agntcy-dir` — core SDK crate. Async gRPC `Client` for DIR
   with `register`, `discover`, `describe`, `publish`, `verify`. Ships
   the `agntcy` CLI bin behind the `cli` feature.
-- `poly-agntcy-dir-spiffe` — optional SPIFFE-backed `Credentials`
+- `hop-top-agntcy-dir-spiffe` — optional SPIFFE-backed `Credentials`
   extension. v0 stub; full SVID + rustls verifier wiring pending.
 
 ## Install
 
 ```sh
-cargo add poly-agntcy-dir
+cargo add hop-top-agntcy-dir
 ```
 
 ## Library usage
@@ -46,13 +46,13 @@ TLS with a pre-built `rustls::ClientConfig`.
 The `agntcy` bin is gated behind the `cli` feature:
 
 ```sh
-cargo install poly-agntcy-dir --features cli
+cargo install hop-top-agntcy-dir --features cli
 agntcy --endpoint http://localhost:50051 discover --capability translate
 ```
 
 ## SPIFFE credentials
 
-See [`poly-agntcy-dir-spiffe`](./poly-agntcy-dir-spiffe) for the
+See [`hop-top-agntcy-dir-spiffe`](./hop-top-agntcy-dir-spiffe) for the
 SPIFFE Workload API extension. The v0 type is gated behind a
 `NotYetWired` error to prevent silent plaintext fallback until the
 SVID + rustls integration ships.

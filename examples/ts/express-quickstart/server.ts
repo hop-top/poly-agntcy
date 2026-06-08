@@ -1,5 +1,5 @@
 import express from "express";
-import { agntcyDirMiddleware } from "@poly-agntcy/dir-express";
+import { agntcyDirMiddleware } from "@hop-top/agntcy-dir-express";
 
 const app = express();
 app.use(express.json());

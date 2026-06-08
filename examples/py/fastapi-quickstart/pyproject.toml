@@ -1,13 +1,13 @@
 [project]
-name = "poly-agntcy-example-fastapi-quickstart"
+name = "hop-top-example-fastapi-quickstart"
 version = "0.0.0"
-description = "FastAPI quickstart for poly-agntcy-dir-fastapi"
+description = "FastAPI quickstart for hop-top-agntcy-dir-fastapi"
 requires-python = ">=3.12"
 dependencies = [
-  "poly-agntcy-dir-fastapi",
+  "hop-top-agntcy-dir-fastapi",
   "fastapi>=0.115",
   "uvicorn>=0.30",
 ]
 
 [tool.uv.sources]
-poly-agntcy-dir-fastapi = { path = "../../../py/packages/dir-fastapi", editable = true }
+hop-top-agntcy-dir-fastapi = { path = "../../../adapters/fastapi", editable = true }

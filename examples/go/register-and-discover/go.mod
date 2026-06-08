@@ -1,4 +1,4 @@
-module example.com/poly-agntcy-examples/go/register-and-discover
+module example.com/hop-top-agntcy-examples/go/register-and-discover
 
 go 1.23
 

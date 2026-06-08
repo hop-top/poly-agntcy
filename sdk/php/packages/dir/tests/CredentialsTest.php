@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace PolyAgntcy\Dir\Tests;
+namespace HopTop\Agntcy\Dir\Tests;
 
 use PHPUnit\Framework\TestCase;
-use PolyAgntcy\Dir\InsecureCredentials;
-use PolyAgntcy\Dir\TlsCredentials;
+use HopTop\Agntcy\Dir\InsecureCredentials;
+use HopTop\Agntcy\Dir\TlsCredentials;
 
 final class CredentialsTest extends TestCase
 {

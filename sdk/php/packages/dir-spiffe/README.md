@@ -1,6 +1,6 @@
-# poly-agntcy/dir-spiffe
+# hop-top/agntcy-dir-spiffe
 
-SPIFFE-backed credentials for `poly-agntcy/dir`.
+SPIFFE-backed credentials for `hop-top/agntcy-dir`.
 
 ## Status
 
@@ -16,14 +16,14 @@ Full implementation tracked in a separate post-bootstrap task.
 ## Install
 
 ```sh
-composer require poly-agntcy/dir-spiffe
+composer require hop-top/agntcy-dir-spiffe
 ```
 
 ## Usage (post-impl)
 
 ```php
-use PolyAgntcy\Dir\Client;
-use PolyAgntcy\Dir\Spiffe\SpiffeCredentials;
+use HopTop\Agntcy\Dir\Client;
+use HopTop\Agntcy\Dir\Spiffe\SpiffeCredentials;
 
 $dir = new Client('directory.example:443', new SpiffeCredentials());
 ```

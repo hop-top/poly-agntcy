@@ -1,9 +1,9 @@
 import os
 
 from fastapi import FastAPI
-from poly_agntcy_dir_fastapi import create_directory_router
+from agntcy_dir_fastapi import create_directory_router
 
-app = FastAPI(title="poly-agntcy fastapi-quickstart")
+app = FastAPI(title="hop-top/agntcy fastapi-quickstart")
 
 app.include_router(
     create_directory_router(
@@ -14,4 +14,4 @@ app.include_router(
 
 @app.get("/")
 def root() -> dict[str, str]:
-    return {"hello": "poly-agntcy"}
+    return {"hello": "hop-top/agntcy"}

@@ -7,7 +7,7 @@ resolve from source during development. Framework adapters live under
 
 ## Packages
 
-- `packages/dir` — core SDK + CLI (`PolyAgntcy\Dir\`). Credentials
+- `packages/dir` — core SDK + CLI (`HopTop\Agntcy\Dir\`). Credentials
   (Insecure / TLS / SPIFFE handle), `Client`, and the `agntcy` CLI.
 - `packages/dir-spiffe` — SPIFFE-backed `SpiffeCredentials`
   (Workload API client, X.509 SVID + trust bundle).

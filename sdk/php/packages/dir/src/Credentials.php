@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PolyAgntcy\Dir;
+namespace HopTop\Agntcy\Dir;
 
 interface Credentials
 {

@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import { agntcyDirPlugin } from "@poly-agntcy/dir-hono";
+import { agntcyDirPlugin } from "@hop-top/agntcy-dir-hono";
 
 type Env = { Bindings: { AGNTCY_ENDPOINT?: string } };
 
@@ -10,6 +10,6 @@ app.post(
   agntcyDirPlugin({ endpoint: process.env.AGNTCY_ENDPOINT ?? "http://localhost:8888" }),
 );
 
-app.get("/", (c) => c.text("poly-agntcy hono-edge example"));
+app.get("/", (c) => c.text("hop-top/agntcy hono-edge example"));
 
 export default app;

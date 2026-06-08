@@ -1,11 +1,11 @@
-# poly-agntcy/dir
+# hop-top/agntcy-dir
 
 PHP SDK for the AGNTCY Agent Directory Service (DIR).
 
 ## Install
 
 ```sh
-composer require poly-agntcy/dir
+composer require hop-top/agntcy-dir
 ```
 
 ## Wire protocol
@@ -24,13 +24,13 @@ prevent collision).
 
 - `InsecureCredentials` — plaintext.
 - `TlsCredentials` — TLS via PHP stream-context `ssl` options.
-- `SpiffeCredentials` — ships in `poly-agntcy/dir-spiffe`.
+- `SpiffeCredentials` — ships in `hop-top/agntcy-dir-spiffe`.
 
 ## Quickstart
 
 ```php
-use PolyAgntcy\Dir\Client;
-use PolyAgntcy\Dir\InsecureCredentials;
+use HopTop\Agntcy\Dir\Client;
+use HopTop\Agntcy\Dir\InsecureCredentials;
 
 $dir = new Client('directory.example:443', new InsecureCredentials());
 foreach ($dir->discover('chat') as $agent) {

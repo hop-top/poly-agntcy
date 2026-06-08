@@ -1,8 +1,8 @@
 [workspace]
 resolver = "2"
 members = [
-  "poly-agntcy-dir",
-  "poly-agntcy-dir-spiffe",
+  "hop-top-agntcy-dir",
+  "hop-top-agntcy-dir-spiffe",
 ]
 
 [workspace.package]

@@ -14,31 +14,37 @@ After reading this page, you'll know what's in each language root, how the proto
 
 ## The shape
 
-Five language roots under one repo. Each ships one or more publishable packages — fourteen in total.
+Role-based layout (per ADR-0007): SDKs under `sdk/<lang>/`, framework
+integrations under `adapters/<framework>/`, generated code under
+`gen/<lang>/`, the single CLI at `cmd/agntcy/`. Fourteen publishable
+packages total.
 
 ```
 poly-agntcy/
-├── proto/                    # buf BSR ref to agntcy/dir (single source of truth)
-├── go/                       # first-party SDK + agntcy CLI
-│   └── spiffe/               # optional SPIFFE credentials (separate module)
-├── rs/                       # Cargo workspace
-│   ├── poly-agntcy-dir/      # core crate + agntcy bin
-│   └── poly-agntcy-dir-spiffe/
-├── php/packages/             # Composer path workspace
-│   ├── dir/                  # core
-│   ├── dir-laravel/          # Laravel ServiceProvider
-│   ├── dir-symfony/          # Symfony Bundle
-│   └── dir-spiffe/
-├── ts/packages/              # pnpm workspace
-│   ├── dir-next/             # Next.js Route Handler + agntcy CLI
-│   ├── dir-hono/             # Hono plugin
-│   └── dir-express/          # Express middleware
-├── py/packages/              # uv workspace
-│   ├── dir-fastapi/          # FastAPI APIRouter + Typer CLI
-│   ├── dir-flask/            # Flask Blueprint
-│   └── dir-django/           # Django app
-├── examples/                 # one per package + cross-lang integration
-└── docs/                     # spec, ADRs, runbooks
+├── cmd/agntcy/                       # Go CLI (only binary in the repo)
+├── contracts/                        # buf pin + lint config (BSR is source of truth)
+├── gen/                              # generated code, committed
+│   ├── go/                           # hop.top/agntcy/gen/go module
+│   ├── rs/
+│   └── php/
+├── sdk/                              # protocol clients (libraries only)
+│   ├── go/                           # hop.top/agntcy module
+│   │   └── spiffe/                   # optional SPIFFE module
+│   ├── rs/                           # Cargo workspace
+│   │   ├── hop-top-agntcy-dir/       # core crate
+│   │   └── hop-top-agntcy-dir-spiffe/
+│   ├── php/packages/                 # Composer path workspace
+│   │   ├── dir/                      # hop-top/agntcy-dir
+│   │   └── dir-spiffe/               # hop-top/agntcy-dir-spiffe
+│   ├── ts/                           # pnpm workspace root (TS is adapter-only)
+│   └── py/                           # uv workspace root (Py is adapter-only)
+├── adapters/                         # framework integrations
+│   ├── laravel/  symfony/            # PHP
+│   ├── next/  hono/  express/        # TypeScript
+│   └── fastapi/  flask/  django/     # Python
+├── go.work                           # multi-module workspace at repo root
+├── examples/                         # one per adapter + cross-lang integration
+└── docs/                             # spec, ADRs, runbooks
 ```
 
 ## How traffic flows
@@ -55,7 +61,7 @@ The adapter package provides a `Client` (or framework integration: APIRouter, Se
 
 ## Where things come from
 
-- **Protobuf types** come from [`buf.build/agntcy/dir`](https://buf.build/agntcy/dir) via the BSR. We don't check in `.proto` files. `mise run gen` regenerates Go/Rust/PHP stubs on demand. TS and Python wrap the official `agntcy-dir` SDK directly.
+- **Protobuf types** come from [`buf.build/agntcy/dir`](https://buf.build/agntcy/dir) via the BSR — pinned in [`contracts/buf.lock`](../contracts/buf.lock). We don't check in `.proto` files. `mise run gen` regenerates committed stubs under `gen/<lang>/`. TS and Python wrap the official `agntcy-dir` SDK directly.
 - **SPIFFE support** lives in separate packages so the core has no mandatory SPIFFE dependency.
 - **CLI tools** ride along inside an existing released package per language (see [ADR-0001](adr/0001-scope-dir-only-phase-one.md) and the design spec §6) to keep the publishable-package count at 14.
 
@@ -64,7 +70,7 @@ The adapter package provides a `Client` (or framework integration: APIRouter, Se
 - **First-party** (Go, Rust, PHP) — we own the wire protocol implementation against the proto stubs.
 - **Adapter** (TypeScript, Python) — we wrap the official AGNTCY SDKs and add typed framework integrations.
 
-This split is documented in [ADR-0005](adr/0005-layout-l3-flat-per-language.md).
+This split is documented in [ADR-0001](adr/0001-scope-dir-only-phase-one.md) (scope) and [ADR-0007](adr/0007-role-based-layout-sdk-adapter-split.md) (layout).
 
 ## Next steps
 

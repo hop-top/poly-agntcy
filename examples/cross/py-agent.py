@@ -1,4 +1,4 @@
-"""Cross-lang Python agent: discovers peers via poly-agntcy-dir-fastapi adapter."""
+"""Cross-lang Python agent: discovers peers via hop-top-agntcy-dir-fastapi adapter."""
 
 from __future__ import annotations
 
@@ -7,7 +7,7 @@ import sys
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="poly-agntcy python cross-agent")
+    parser = argparse.ArgumentParser(description="hop-top/agntcy python cross-agent")
     parser.add_argument("--endpoint", default="http://localhost:8888")
     sub = parser.add_subparsers(dest="verb", required=True)
 

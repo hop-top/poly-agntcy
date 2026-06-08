@@ -1,0 +1,16 @@
+[package]
+name = "hop-top-agntcy-dir-spiffe"
+version = "0.0.0"
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "SPIFFE-backed credentials for hop-top-agntcy-dir"
+
+[lints]
+workspace = true
+
+[dependencies]
+hop-top-agntcy-dir = { path = "../hop-top-agntcy-dir", version = "0.0.0" }
+spiffe = { version = "0.15", default-features = false, features = ["workload-api-x509"] }
+rustls = "0.23"
+thiserror = "2"

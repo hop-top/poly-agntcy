@@ -87,7 +87,7 @@ func main() {
 ### Rust
 
 ```rust
-use poly_agntcy_dir::{Client, Options, InsecureCredentials, DiscoverParams};
+use hop_top_agntcy_dir::{Client, Options, InsecureCredentials, DiscoverParams};
 use std::sync::Arc;
 
 #[tokio::main]
@@ -108,8 +108,8 @@ async fn main() -> anyhow::Result<()> {
 <?php
 declare(strict_types=1);
 
-use PolyAgntcy\Dir\Client;
-use PolyAgntcy\Dir\InsecureCredentials;
+use HopTop\Agntcy\Dir\Client;
+use HopTop\Agntcy\Dir\InsecureCredentials;
 
 $client = new Client(
     endpoint: 'http://localhost:8888',
@@ -124,9 +124,9 @@ var_dump($res->agents);
 
 ```ts
 // app/api/agntcy/route.ts
-import { createDirectoryHandler } from "@poly-agntcy/dir-next";
+import { createDirectoryRouteHandler } from "@hop-top/agntcy-dir-next";
 
-export const POST = createDirectoryHandler({
+export const POST = createDirectoryRouteHandler({
   endpoint: "http://localhost:8888",
 });
 ```
@@ -135,7 +135,7 @@ export const POST = createDirectoryHandler({
 
 ```py
 from fastapi import FastAPI
-from poly_agntcy_dir_fastapi import create_directory_router
+from agntcy_dir_fastapi import create_directory_router
 
 app = FastAPI()
 app.include_router(create_directory_router(endpoint="http://localhost:8888"))

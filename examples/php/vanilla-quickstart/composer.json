@@ -1,14 +1,14 @@
 {
-    "name": "poly-agntcy/example-vanilla-quickstart",
+    "name": "hop-top/example-vanilla-quickstart",
     "type": "project",
-    "description": "Vanilla PHP quickstart for poly-agntcy/dir",
+    "description": "Vanilla PHP quickstart for hop-top/agntcy-dir",
     "license": "Apache-2.0",
     "require": {
         "php": "^8.2",
-        "poly-agntcy/dir": "*"
+        "hop-top/agntcy-dir": "*"
     },
     "repositories": [
-        { "type": "path", "url": "../../../php/packages/dir" }
+        { "type": "path", "url": "../../../sdk/php/packages/dir" }
     ],
     "minimum-stability": "dev",
     "prefer-stable": true

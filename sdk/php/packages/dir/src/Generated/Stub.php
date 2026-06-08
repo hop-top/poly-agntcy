@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PolyAgntcy\Dir\Generated;
+namespace HopTop\Agntcy\Dir\Generated;
 
 /**
  * Placeholder class declarations matching the codegen output of
@@ -17,7 +17,7 @@ namespace PolyAgntcy\Dir\Generated;
  * available in the analysis path.
  */
 
-if (!class_exists(\PolyAgntcy\Dir\Generated\Agent::class, false)) {
+if (!class_exists(\HopTop\Agntcy\Dir\Generated\Agent::class, false)) {
     /**
      * @phpstan-type AgentArray array{name?: string, capabilities?: list<string>}
      */
@@ -30,7 +30,7 @@ if (!class_exists(\PolyAgntcy\Dir\Generated\Agent::class, false)) {
     }
 }
 
-if (!class_exists(\PolyAgntcy\Dir\Generated\RegisterRequest::class, false)) {
+if (!class_exists(\HopTop\Agntcy\Dir\Generated\RegisterRequest::class, false)) {
     class RegisterRequest
     {
         public function setAgent(Agent $agent): self
@@ -40,14 +40,14 @@ if (!class_exists(\PolyAgntcy\Dir\Generated\RegisterRequest::class, false)) {
     }
 }
 
-if (!class_exists(\PolyAgntcy\Dir\Generated\RegisterResponse::class, false)) {
+if (!class_exists(\HopTop\Agntcy\Dir\Generated\RegisterResponse::class, false)) {
     class RegisterResponse
     {
         public string $id = '';
     }
 }
 
-if (!class_exists(\PolyAgntcy\Dir\Generated\DiscoverRequest::class, false)) {
+if (!class_exists(\HopTop\Agntcy\Dir\Generated\DiscoverRequest::class, false)) {
     class DiscoverRequest
     {
         public function setCapability(string $capability): self
@@ -57,7 +57,7 @@ if (!class_exists(\PolyAgntcy\Dir\Generated\DiscoverRequest::class, false)) {
     }
 }
 
-if (!class_exists(\PolyAgntcy\Dir\Generated\DiscoverResponse::class, false)) {
+if (!class_exists(\HopTop\Agntcy\Dir\Generated\DiscoverResponse::class, false)) {
     class DiscoverResponse
     {
         /** @var list<Agent> */
@@ -65,7 +65,7 @@ if (!class_exists(\PolyAgntcy\Dir\Generated\DiscoverResponse::class, false)) {
     }
 }
 
-if (!class_exists(\PolyAgntcy\Dir\Generated\DescribeRequest::class, false)) {
+if (!class_exists(\HopTop\Agntcy\Dir\Generated\DescribeRequest::class, false)) {
     class DescribeRequest
     {
         public function setId(string $id): self
@@ -75,14 +75,14 @@ if (!class_exists(\PolyAgntcy\Dir\Generated\DescribeRequest::class, false)) {
     }
 }
 
-if (!class_exists(\PolyAgntcy\Dir\Generated\DescribeResponse::class, false)) {
+if (!class_exists(\HopTop\Agntcy\Dir\Generated\DescribeResponse::class, false)) {
     class DescribeResponse
     {
         public ?Agent $agent = null;
     }
 }
 
-if (!class_exists(\PolyAgntcy\Dir\Generated\PublishRequest::class, false)) {
+if (!class_exists(\HopTop\Agntcy\Dir\Generated\PublishRequest::class, false)) {
     class PublishRequest
     {
         public function setAgent(Agent $agent): self
@@ -92,14 +92,14 @@ if (!class_exists(\PolyAgntcy\Dir\Generated\PublishRequest::class, false)) {
     }
 }
 
-if (!class_exists(\PolyAgntcy\Dir\Generated\PublishResponse::class, false)) {
+if (!class_exists(\HopTop\Agntcy\Dir\Generated\PublishResponse::class, false)) {
     class PublishResponse
     {
         public string $version = '';
     }
 }
 
-if (!class_exists(\PolyAgntcy\Dir\Generated\VerifyRequest::class, false)) {
+if (!class_exists(\HopTop\Agntcy\Dir\Generated\VerifyRequest::class, false)) {
     class VerifyRequest
     {
         public function setId(string $id): self
@@ -109,14 +109,14 @@ if (!class_exists(\PolyAgntcy\Dir\Generated\VerifyRequest::class, false)) {
     }
 }
 
-if (!class_exists(\PolyAgntcy\Dir\Generated\VerifyResponse::class, false)) {
+if (!class_exists(\HopTop\Agntcy\Dir\Generated\VerifyResponse::class, false)) {
     class VerifyResponse
     {
         public bool $valid = false;
     }
 }
 
-if (!class_exists(\PolyAgntcy\Dir\Generated\DirectoryServiceClient::class, false)) {
+if (!class_exists(\HopTop\Agntcy\Dir\Generated\DirectoryServiceClient::class, false)) {
     /**
      * Mirrors buf grpc/php codegen: a synchronous unary stub. Real impl
      * extends \Grpc\BaseStub and returns \Grpc\UnaryCall. The shim returns

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PolyAgntcy\Dir\Spiffe;
+namespace HopTop\Agntcy\Dir\Spiffe;
 
-use PolyAgntcy\Dir\Credentials;
+use HopTop\Agntcy\Dir\Credentials;
 
 /**
  * Credentials backed by a SPIRE agent on a local Unix domain socket.

@@ -1,13 +1,13 @@
 {
-    "name": "poly-agntcy/php-workspace",
+    "name": "hop-top/agntcy-php-workspace",
     "type": "project",
     "license": "Apache-2.0",
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
         "php": "^8.2",
-        "poly-agntcy/dir": "@dev",
-        "poly-agntcy/dir-spiffe": "@dev"
+        "hop-top/agntcy-dir": "@dev",
+        "hop-top/agntcy-dir-spiffe": "@dev"
     },
     "repositories": [
         { "type": "path", "url": "packages/dir" },

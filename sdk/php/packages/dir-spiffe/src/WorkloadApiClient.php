@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PolyAgntcy\Dir\Spiffe;
+namespace HopTop\Agntcy\Dir\Spiffe;
 
 /**
  * v0 skeleton of the SPIFFE Workload API client over a Unix domain

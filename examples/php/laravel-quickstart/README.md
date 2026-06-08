@@ -1,6 +1,6 @@
 # php / laravel-quickstart
 
-Shows how `poly-agntcy/dir-laravel` wires the DIR `Client` into a
+Shows how `hop-top/agntcy-dir-laravel` wires the DIR `Client` into a
 Laravel app via its `AgntcyServiceProvider`. Includes:
 
 - `config/agntcy.php` — the published config stub

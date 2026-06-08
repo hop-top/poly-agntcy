@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PolyAgntcy\Dir\Cli;
+namespace HopTop\Agntcy\Dir\Cli;
 
-use PolyAgntcy\Dir\Client;
-use PolyAgntcy\Dir\InsecureCredentials;
+use HopTop\Agntcy\Dir\Client;
+use HopTop\Agntcy\Dir\InsecureCredentials;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;

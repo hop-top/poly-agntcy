@@ -6,7 +6,7 @@ discover it back by capability, then publish a signed payload.
 ## Run
 
 ```sh
-cargo run -p poly-agntcy-example-register-and-discover -- \
+cargo run -p hop-top-example-register-and-discover -- \
   --endpoint http://localhost:8888 \
   --capability inventory
 ```

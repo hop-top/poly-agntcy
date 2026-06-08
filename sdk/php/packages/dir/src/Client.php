@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace PolyAgntcy\Dir;
+namespace HopTop\Agntcy\Dir;
 
-use PolyAgntcy\Dir\Generated\Agent;
-use PolyAgntcy\Dir\Generated\DescribeRequest;
-use PolyAgntcy\Dir\Generated\DirectoryServiceClient;
-use PolyAgntcy\Dir\Generated\DiscoverRequest;
-use PolyAgntcy\Dir\Generated\PublishRequest;
-use PolyAgntcy\Dir\Generated\RegisterRequest;
-use PolyAgntcy\Dir\Generated\VerifyRequest;
+use HopTop\Agntcy\Dir\Generated\Agent;
+use HopTop\Agntcy\Dir\Generated\DescribeRequest;
+use HopTop\Agntcy\Dir\Generated\DirectoryServiceClient;
+use HopTop\Agntcy\Dir\Generated\DiscoverRequest;
+use HopTop\Agntcy\Dir\Generated\PublishRequest;
+use HopTop\Agntcy\Dir\Generated\RegisterRequest;
+use HopTop\Agntcy\Dir\Generated\VerifyRequest;
 use Psr\Http\Client\ClientInterface;
 
 final class Client

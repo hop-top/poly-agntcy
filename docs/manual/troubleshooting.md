@@ -42,7 +42,7 @@ cargo build --bin agntcy --features cli
 
 The feature gates `clap` and `anyhow` so they don't leak into library consumers.
 
-### PHP: `class PolyAgntcy\Dir\Client not found` after composer install
+### PHP: `class HopTop\Agntcy\Dir\Client not found` after composer install
 
 The PSR-4 autoloader isn't regenerated. Run:
 

@@ -1,6 +1,6 @@
 # ADR-0006: Naming — `poly-agntcy` source, `hop.top/agntcy` Go vanity, per-language mirror
 
-- Status: Accepted
+- Status: Partially superseded by ADR-0008 (package names)
 - Date: 2026-05-30
 - Deciders: jadb
 

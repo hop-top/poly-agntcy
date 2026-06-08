@@ -1,0 +1,28 @@
+{
+    "name": "hop-top/agntcy-dir-laravel",
+    "type": "library",
+    "description": "Laravel integration for hop-top/agntcy-dir",
+    "license": "Apache-2.0",
+    "require": {
+        "php": "^8.2",
+        "hop-top/agntcy-dir": "*",
+        "illuminate/support": "^11.0|^12.0",
+        "illuminate/contracts": "^11.0|^12.0"
+    },
+    "autoload": {
+        "psr-4": { "HopTop\\Agntcy\\Dir\\Laravel\\": "src/" }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "HopTop\\Agntcy\\Dir\\Laravel\\AgntcyServiceProvider"
+            ],
+            "aliases": {
+                "Agntcy": "HopTop\\Agntcy\\Dir\\Laravel\\Facades\\Agntcy"
+            }
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}

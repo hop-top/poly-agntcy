@@ -1,17 +1,17 @@
 {
-    "name": "poly-agntcy/example-symfony-quickstart",
+    "name": "hop-top/example-symfony-quickstart",
     "type": "project",
-    "description": "Symfony quickstart for poly-agntcy/dir-symfony",
+    "description": "Symfony quickstart for hop-top/agntcy-dir-symfony",
     "license": "Apache-2.0",
     "require": {
         "php": "^8.2",
         "symfony/framework-bundle": "^7.0",
         "symfony/console": "^7.0",
-        "poly-agntcy/dir-symfony": "*"
+        "hop-top/agntcy-dir-symfony": "*"
     },
     "repositories": [
-        { "type": "path", "url": "../../../php/packages/dir" },
-        { "type": "path", "url": "../../../php/packages/dir-symfony" }
+        { "type": "path", "url": "../../../sdk/php/packages/dir" },
+        { "type": "path", "url": "../../../adapters/symfony" }
     ],
     "autoload": {
         "psr-4": {
