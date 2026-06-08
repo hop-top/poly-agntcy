@@ -10,7 +10,7 @@ run = "(cd contracts && buf generate)"
 description = "Lint all enabled languages"
 run = [
   "(cd go && golangci-lint run ./...)",
-  "(cd rs && cargo clippy --workspace -- -D warnings)",
+  "(cd sdk/rs && cargo clippy --workspace -- -D warnings)",
   "(cd ts && pnpm -r lint)",
   "(cd py && uv run ruff check)",
   "(cd php && composer run lint --no-interaction)",
@@ -20,7 +20,7 @@ run = [
 description = "Test all enabled languages"
 run = [
   "(cd go && go test ./...)",
-  "(cd rs && cargo test --workspace)",
+  "(cd sdk/rs && cargo test --workspace)",
   "(cd ts && pnpm -r test)",
   "(cd py && uv run pytest)",
   "(cd php && composer test)",
@@ -34,7 +34,7 @@ run = "(cd examples/cross && ./run.sh)"
 description = "Install deps across all languages incl PHP + buf"
 run = [
   "(cd go && go mod download)",
-  "(cd rs && cargo fetch)",
+  "(cd sdk/rs && cargo fetch)",
   "(cd ts && pnpm install)",
   "(cd py && uv sync)",
   "(cd php && composer install --no-interaction) || true",
