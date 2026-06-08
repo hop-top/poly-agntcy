@@ -57,6 +57,7 @@ actionlint = "1.7"
 shellcheck = "0.10"
 shfmt = "3.10"
 "npm:release-please" = "16"
+buf = "1.70"
 
 [env]
 _.file = ".env"
