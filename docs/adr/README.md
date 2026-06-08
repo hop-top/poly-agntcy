@@ -10,8 +10,11 @@ Consequences, Alternatives, Related.
 | [ADR-0002](0002-protobuf-bsr-pin-codegen-mise.md) | Protobuf — BSR pin, codegen via mise, no checked-in stubs | Accepted | 2026-05-30 |
 | [ADR-0003](0003-spiffe-optional-extension-per-language.md) | SPIFFE — optional extension package per language | Accepted | 2026-05-30 |
 | [ADR-0004](0004-release-per-package-release-please.md) | Release — per-package release-please tracks | Accepted | 2026-05-30 |
-| [ADR-0005](0005-layout-l3-flat-per-language.md) | Layout — L3 flat-per-lang, TS/Py adapter-only | Accepted | 2026-05-30 |
-| [ADR-0006](0006-naming-source-vanity-mirrors.md) | Naming — `poly-agntcy` source, `hop.top/agntcy` Go vanity, per-language mirror | Accepted | 2026-05-30 |
+| [ADR-0005](0005-layout-l3-flat-per-language.md) | Layout — L3 flat-per-lang, TS/Py adapter-only | Superseded by ADR-0007 | 2026-05-30 |
+| [ADR-0006](0006-naming-source-vanity-mirrors.md) | Naming — `poly-agntcy` source, `hop.top/agntcy` Go vanity, per-language mirror | Partially superseded by ADR-0008 | 2026-05-30 |
+| [ADR-0007](0007-role-based-layout-sdk-adapter-split.md) | Layout — role-based (sdk/adapter/cmd) over flat-per-language | Accepted | 2026-06-08 |
+| [ADR-0008](0008-vendor-package-names.md) | Vendor-rooted package names — `hop-top/agntcy-*` | Accepted | 2026-06-08 |
+| [ADR-0009](0009-mirror-publish-topology.md) | Mirror publish topology — defer multi-component-per-mirror fix | Proposed | 2026-06-08 |
 
 ## Conventions
 

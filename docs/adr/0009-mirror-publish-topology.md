@@ -1,6 +1,6 @@
 # ADR-0009: Mirror publish topology — defer multi-component-per-mirror fix
 
-- Status: Proposed (investigation only)
+- Status: Proposed
 - Date: 2026-06-08
 - Deciders: jadb
 - Related: ADR-0006 (mirror naming), ADR-0007 (role-based layout, phase 8)
