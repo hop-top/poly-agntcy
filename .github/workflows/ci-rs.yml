@@ -3,10 +3,10 @@ name: CI (Rust)
 on:
   push:
     branches: [main]
-    paths: ["**/*.rs", "Cargo.toml", "Cargo.lock"]
+    paths: ["**/*.rs", "**/Cargo.toml", "**/Cargo.lock"]
   pull_request:
     branches: [main]
-    paths: ["**/*.rs", "Cargo.toml", "Cargo.lock"]
+    paths: ["**/*.rs", "**/Cargo.toml", "**/Cargo.lock"]
 
 permissions:
   contents: read
@@ -23,15 +23,18 @@ jobs:
         with:
           install: true
           cache: true
-      - run: mise run install
       # <<< kit-managed: toolchain <<<
 
       - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: sdk/rs
 
       - name: cargo fmt
+        working-directory: sdk/rs
         run: mise exec -- cargo fmt --all -- --check
 
       - name: cargo clippy
+        working-directory: sdk/rs
         run: mise exec -- cargo clippy --all-targets --all-features -- -D warnings
 
   test:
@@ -45,12 +48,14 @@ jobs:
         with:
           install: true
           cache: true
-      - run: mise run install
       # <<< kit-managed: toolchain <<<
 
       - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: sdk/rs
 
       - name: Run tests
+        working-directory: sdk/rs
         run: mise exec -- cargo test --all-features --workspace
 
   build:
@@ -65,10 +70,12 @@ jobs:
         with:
           install: true
           cache: true
-      - run: mise run install
       # <<< kit-managed: toolchain <<<
 
       - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: sdk/rs
 
-      - name: Build poly-agntcy
+      - name: Build workspace
+        working-directory: sdk/rs
         run: mise exec -- cargo build --release --workspace --all-features

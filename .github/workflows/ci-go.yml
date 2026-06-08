@@ -3,10 +3,10 @@ name: CI (Go)
 on:
   push:
     branches: [main]
-    paths: ["**.go", "go.mod", "go.sum"]
+    paths: ["**.go", "**/go.mod", "**/go.sum", "go.work", "go.work.sum"]
   pull_request:
     branches: [main]
-    paths: ["**.go", "go.mod", "go.sum"]
+    paths: ["**.go", "**/go.mod", "**/go.sum", "go.work", "go.work.sum"]
 
 permissions:
   contents: read
@@ -15,6 +15,9 @@ jobs:
   lint:
     name: Lint
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        module: [sdk/go, sdk/go/spiffe, cmd/agntcy, gen/go]
     steps:
       - uses: actions/checkout@v4
 
@@ -23,10 +26,10 @@ jobs:
         with:
           install: true
           cache: true
-      - run: mise run install
       # <<< kit-managed: toolchain <<<
 
-      - name: golangci-lint
+      - name: golangci-lint (${{ matrix.module }})
+        working-directory: ${{ matrix.module }}
         run: mise exec -- golangci-lint run ./...
 
   test:
@@ -40,11 +43,10 @@ jobs:
         with:
           install: true
           cache: true
-      - run: mise run install
       # <<< kit-managed: toolchain <<<
 
-      - name: Run tests
-        run: mise exec -- go test -race -coverprofile=coverage.out ./...
+      - name: Run tests (workspace)
+        run: mise exec -- go test -race -coverprofile=coverage.out ./sdk/go/... ./sdk/go/spiffe/... ./cmd/agntcy ./gen/go/...
 
       - name: Upload coverage
         uses: actions/upload-artifact@v4
@@ -64,8 +66,8 @@ jobs:
         with:
           install: true
           cache: true
-      - run: mise run install
       # <<< kit-managed: toolchain <<<
 
-      - name: Build
-        run: mise exec -- go build -o poly-agntcy .
+      - name: Build agntcy CLI
+        working-directory: cmd/agntcy
+        run: mise exec -- go build -o agntcy .
