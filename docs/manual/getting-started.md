@@ -15,13 +15,13 @@ After this guide, you'll have called `discover` against a local DIR instance fro
 
 You need:
 
-- A DIR endpoint. The fastest way is the local docker-compose harness in [`examples/cross/`](../../examples/cross/).
+- A DIR endpoint. The fastest way is the local docker-compose harness in [`e2e/conformance/`](../../e2e/conformance/).
 - The poly-agntcy package for your language. See [install](install.md).
 
 Start a local DIR instance from the repo root:
 
 ```sh
-cd examples/cross
+cd e2e/conformance
 docker compose up -d
 ```
 
