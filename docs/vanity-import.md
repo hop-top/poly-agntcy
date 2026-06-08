@@ -35,8 +35,8 @@ Per ADR-0010, each module path has its own mirror.
 
 | Module path | Mirror | Source subtree |
 |---|---|---|
-| `hop.top/agntcy` | `hop-top/agntcy/` | `poly-agntcy/sdk/go/` |
-| `hop.top/agntcy-go-spiffe` | `hop-top/agntcy-go-spiffe/` | `poly-agntcy/sdk/go/spiffe/` |
+| `hop.top/agntcy` | `hop-top/agntcy` | `poly-agntcy/sdk/go/` |
+| `hop.top/agntcy-go-spiffe` | `hop-top/agntcy-go-spiffe` | `poly-agntcy/sdk/go/spiffe/` |
 
 Both module paths are single-segment under `hop.top/`. The hop.top
 vanity worker resolves them by **convention** (single-segment

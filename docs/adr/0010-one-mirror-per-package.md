@@ -39,7 +39,7 @@ appears first as the primary axis, framework or qualifier follows.
 | `py-flask` | `hop-top/agntcy-py-flask` | New |
 | `py-django` | `hop-top/agntcy-py-django` | New |
 
-Nine new mirrors. The shared `mirror-subtree.yml` calls
+Eleven new mirrors. The shared `mirror-subtree.yml` calls
 `gh repo create` if the target doesn't exist, so mirrors auto-create
 on first tag push to that component (provided `GH_MIRROR_PAT` has
 `repo` + admin permissions on the `hop-top` org).
@@ -73,7 +73,7 @@ Positive:
 
 Negative:
 
-- Mirror count grows from 5 to 12 active (9 new + 3 retained:
+- Mirror count grows from 5 to 14 active (11 new + 3 retained:
   `agntcy`, `agntcy-rs`, `agntcy-php`). `agntcy-ts` and `agntcy-py`
   archived.
 - The Go SPIFFE module path changes from `hop.top/agntcy/spiffe`
