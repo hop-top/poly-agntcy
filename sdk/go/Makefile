@@ -4,8 +4,7 @@ setup:
 	go mod download
 
 build:
-	mkdir -p bin
-	go build -o bin/agntcy ./cmd/agntcy
+	go build ./...
 
 test:
 	go test ./...
