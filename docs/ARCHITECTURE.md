@@ -22,8 +22,8 @@ poly-agntcy/
 ├── go/                       # first-party SDK + agntcy CLI
 │   └── spiffe/               # optional SPIFFE credentials (separate module)
 ├── rs/                       # Cargo workspace
-│   ├── poly-agntcy-dir/      # core crate + agntcy bin
-│   └── poly-agntcy-dir-spiffe/
+│   ├── hop-top-agntcy-dir/      # core crate + agntcy bin
+│   └── hop-top-agntcy-dir-spiffe/
 ├── php/packages/             # Composer path workspace
 │   ├── dir/                  # core
 │   ├── dir-laravel/          # Laravel ServiceProvider

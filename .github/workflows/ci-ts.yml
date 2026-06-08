@@ -26,11 +26,11 @@ jobs:
       # <<< kit-managed: toolchain <<<
 
       - name: pnpm install
-        working-directory: ts
+        working-directory: sdk/ts
         run: mise exec -- pnpm install --frozen-lockfile
 
       - name: Lint
-        working-directory: ts
+        working-directory: sdk/ts
         run: mise exec -- pnpm -r lint
 
   test:
@@ -47,11 +47,11 @@ jobs:
       # <<< kit-managed: toolchain <<<
 
       - name: pnpm install
-        working-directory: ts
+        working-directory: sdk/ts
         run: mise exec -- pnpm install --frozen-lockfile
 
       - name: Test
-        working-directory: ts
+        working-directory: sdk/ts
         run: mise exec -- pnpm -r test
 
   build:
@@ -69,9 +69,9 @@ jobs:
       # <<< kit-managed: toolchain <<<
 
       - name: pnpm install
-        working-directory: ts
+        working-directory: sdk/ts
         run: mise exec -- pnpm install --frozen-lockfile
 
       - name: Build
-        working-directory: ts
+        working-directory: sdk/ts
         run: mise exec -- pnpm -r build

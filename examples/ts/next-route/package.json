@@ -1,5 +1,5 @@
 {
-  "name": "@poly-agntcy/example-next-route",
+  "name": "@hop-top/example-next-route",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -9,7 +9,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@poly-agntcy/dir-next": "workspace:*",
+    "@hop-top/agntcy-dir-next": "workspace:*",
     "next": "^15.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

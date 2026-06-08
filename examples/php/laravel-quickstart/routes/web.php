@@ -3,8 +3,8 @@
 declare(strict_types=1);
 
 use Illuminate\Support\Facades\Route;
-use PolyAgntcy\Dir\Client;
-use PolyAgntcy\Dir\Generated\Agent;
+use HopTop\Agntcy\Dir\Client;
+use HopTop\Agntcy\Dir\Generated\Agent;
 
 Route::get('/agntcy/discover/{capability}', function (string $capability, Client $client) {
     $agents = $client->discover($capability);

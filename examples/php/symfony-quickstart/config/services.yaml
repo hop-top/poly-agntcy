@@ -6,11 +6,11 @@ services:
         autowire: true
         autoconfigure: true
 
-    PolyAgntcy\Dir\Client:
+    HopTop\Agntcy\Dir\Client:
         arguments:
             $endpoint: '%agntcy.endpoint%'
-            $credentials: '@PolyAgntcy\Dir\InsecureCredentials'
+            $credentials: '@HopTop\Agntcy\Dir\InsecureCredentials'
 
-    PolyAgntcy\Dir\InsecureCredentials: ~
+    HopTop\Agntcy\Dir\InsecureCredentials: ~
 
     App\Command\RegisterInventoryCommand: ~

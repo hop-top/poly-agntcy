@@ -1,16 +1,16 @@
 {
-    "name": "poly-agntcy/example-laravel-quickstart",
+    "name": "hop-top/example-laravel-quickstart",
     "type": "project",
-    "description": "Laravel quickstart for poly-agntcy/dir-laravel",
+    "description": "Laravel quickstart for hop-top/agntcy-dir-laravel",
     "license": "Apache-2.0",
     "require": {
         "php": "^8.2",
         "laravel/framework": "^11.0",
-        "poly-agntcy/dir-laravel": "*"
+        "hop-top/agntcy-dir-laravel": "*"
     },
     "repositories": [
-        { "type": "path", "url": "../../../php/packages/dir" },
-        { "type": "path", "url": "../../../php/packages/dir-laravel" }
+        { "type": "path", "url": "../../../sdk/php/packages/dir" },
+        { "type": "path", "url": "../../../adapters/laravel" }
     ],
     "autoload": {
         "psr-4": {

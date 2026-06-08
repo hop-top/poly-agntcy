@@ -26,15 +26,15 @@ jobs:
       # <<< kit-managed: toolchain <<<
 
       - name: uv sync
-        working-directory: py
+        working-directory: sdk/py
         run: mise exec -- uv sync
 
       - name: Ruff check
-        working-directory: py
+        working-directory: sdk/py
         run: mise exec -- uv run ruff check .
 
       - name: Ruff format check
-        working-directory: py
+        working-directory: sdk/py
         run: mise exec -- uv run ruff format --check .
 
   typecheck:
@@ -51,11 +51,11 @@ jobs:
       # <<< kit-managed: toolchain <<<
 
       - name: uv sync
-        working-directory: py
+        working-directory: sdk/py
         run: mise exec -- uv sync
 
       - name: Mypy
-        working-directory: py
+        working-directory: sdk/py
         run: mise exec -- uv run mypy .
 
   test:
@@ -72,9 +72,9 @@ jobs:
       # <<< kit-managed: toolchain <<<
 
       - name: uv sync
-        working-directory: py
+        working-directory: sdk/py
         run: mise exec -- uv sync
 
       - name: Pytest
-        working-directory: py
+        working-directory: sdk/py
         run: mise exec -- uv run pytest --cov -v

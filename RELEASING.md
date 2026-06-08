@@ -14,20 +14,20 @@ Fourteen release tracks, one per publishable package. See [the design spec §6](
 
 | Component | Path | Ecosystem | Registry name |
 |---|---|---|---|
-| `go` | `go/` | go | `hop.top/agntcy` |
-| `go-spiffe` | `go/spiffe/` | go | `hop.top/agntcy/spiffe` |
-| `rs` | `rs/poly-agntcy-dir/` | rust | `poly-agntcy-dir` |
-| `rs-spiffe` | `rs/poly-agntcy-dir-spiffe/` | rust | `poly-agntcy-dir-spiffe` |
-| `php` | `php/packages/dir/` | php | `poly-agntcy/dir` |
-| `php-laravel` | `php/packages/dir-laravel/` | php | `poly-agntcy/dir-laravel` |
-| `php-symfony` | `php/packages/dir-symfony/` | php | `poly-agntcy/dir-symfony` |
-| `php-spiffe` | `php/packages/dir-spiffe/` | php | `poly-agntcy/dir-spiffe` |
-| `ts-next` | `ts/packages/dir-next/` | npm | `@poly-agntcy/dir-next` |
-| `ts-hono` | `ts/packages/dir-hono/` | npm | `@poly-agntcy/dir-hono` |
-| `ts-express` | `ts/packages/dir-express/` | npm | `@poly-agntcy/dir-express` |
-| `py-fastapi` | `py/packages/dir-fastapi/` | PyPI | `poly-agntcy-dir-fastapi` |
-| `py-flask` | `py/packages/dir-flask/` | PyPI | `poly-agntcy-dir-flask` |
-| `py-django` | `py/packages/dir-django/` | PyPI | `poly-agntcy-dir-django` |
+| `go` | `sdk/go/` | go | `hop.top/agntcy` |
+| `go-spiffe` | `sdk/go/spiffe/` | go | `hop.top/agntcy/spiffe` |
+| `rs` | `sdk/rs/hop-top-agntcy-dir/` | rust | `hop-top-agntcy-dir` |
+| `rs-spiffe` | `sdk/rs/hop-top-agntcy-dir-spiffe/` | rust | `hop-top-agntcy-dir-spiffe` |
+| `php` | `sdk/php/packages/dir/` | php | `hop-top/agntcy-dir` |
+| `php-laravel` | `adapters/laravel/` | php | `hop-top/agntcy-dir-laravel` |
+| `php-symfony` | `adapters/symfony/` | php | `hop-top/agntcy-dir-symfony` |
+| `php-spiffe` | `sdk/php/packages/dir-spiffe/` | php | `hop-top/agntcy-dir-spiffe` |
+| `ts-next` | `adapters/next/` | npm | `@hop-top/agntcy-dir-next` |
+| `ts-hono` | `adapters/hono/` | npm | `@hop-top/agntcy-dir-hono` |
+| `ts-express` | `adapters/express/` | npm | `@hop-top/agntcy-dir-express` |
+| `py-fastapi` | `adapters/fastapi/` | PyPI | `hop-top-agntcy-dir-fastapi` |
+| `py-flask` | `adapters/flask/` | PyPI | `hop-top-agntcy-dir-flask` |
+| `py-django` | `adapters/django/` | PyPI | `hop-top-agntcy-dir-django` |
 
 Each component releases independently. A commit touching only `php/packages/dir-laravel/` opens a release PR only for `php-laravel`.
 

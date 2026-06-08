@@ -1,5 +1,5 @@
 {
-    "name": "poly-agntcy/dir",
+    "name": "hop-top/agntcy-dir",
     "type": "library",
     "description": "AGNTCY Directory Service SDK + CLI for PHP",
     "license": "Apache-2.0",
@@ -15,13 +15,13 @@
     },
     "autoload": {
         "psr-4": {
-            "PolyAgntcy\\Dir\\": "src/"
+            "HopTop\\Agntcy\\Dir\\": "src/"
         },
         "files": ["src/Generated/Stub.php"]
     },
     "autoload-dev": {
         "psr-4": {
-            "PolyAgntcy\\Dir\\Tests\\": "tests/"
+            "HopTop\\Agntcy\\Dir\\Tests\\": "tests/"
         }
     },
     "bin": ["bin/agntcy"],

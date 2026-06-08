@@ -1,6 +1,6 @@
 # php / symfony-quickstart
 
-Shows how `poly-agntcy/dir-symfony` registers its `AgntcyBundle`
+Shows how `hop-top/agntcy-dir-symfony` registers its `AgntcyBundle`
 into a Symfony app and wires the `Client` via DI. Includes:
 
 - `config/bundles.php` — bundle registration

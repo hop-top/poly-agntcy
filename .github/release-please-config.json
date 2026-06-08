@@ -9,75 +9,75 @@
   "bump-patch-for-minor-pre-major": true,
   "initial-version": "0.1.0",
   "packages": {
-    "go": {
+    "sdk/go": {
       "release-type": "go",
       "component": "go",
       "package-name": "hop.top/agntcy"
     },
-    "go/spiffe": {
+    "sdk/go/spiffe": {
       "release-type": "go",
       "component": "go-spiffe",
       "package-name": "hop.top/agntcy/spiffe"
     },
-    "rs/poly-agntcy-dir": {
+    "sdk/rs/hop-top-agntcy-dir": {
       "release-type": "rust",
       "component": "rs",
-      "package-name": "poly-agntcy-dir"
+      "package-name": "hop-top-agntcy-dir"
     },
-    "rs/poly-agntcy-dir-spiffe": {
+    "sdk/rs/hop-top-agntcy-dir-spiffe": {
       "release-type": "rust",
       "component": "rs-spiffe",
-      "package-name": "poly-agntcy-dir-spiffe"
+      "package-name": "hop-top-agntcy-dir-spiffe"
     },
-    "php/packages/dir": {
+    "sdk/php/packages/dir": {
       "release-type": "php",
       "component": "php",
-      "package-name": "poly-agntcy/dir"
+      "package-name": "hop-top/agntcy-dir"
     },
-    "php/packages/dir-laravel": {
+    "adapters/laravel": {
       "release-type": "php",
       "component": "php-laravel",
-      "package-name": "poly-agntcy/dir-laravel"
+      "package-name": "hop-top/agntcy-dir-laravel"
     },
-    "php/packages/dir-symfony": {
+    "adapters/symfony": {
       "release-type": "php",
       "component": "php-symfony",
-      "package-name": "poly-agntcy/dir-symfony"
+      "package-name": "hop-top/agntcy-dir-symfony"
     },
-    "php/packages/dir-spiffe": {
+    "sdk/php/packages/dir-spiffe": {
       "release-type": "php",
       "component": "php-spiffe",
-      "package-name": "poly-agntcy/dir-spiffe"
+      "package-name": "hop-top/agntcy-dir-spiffe"
     },
-    "ts/packages/dir-next": {
+    "adapters/next": {
       "release-type": "node",
       "component": "ts-next",
-      "package-name": "@poly-agntcy/dir-next"
+      "package-name": "@hop-top/agntcy-dir-next"
     },
-    "ts/packages/dir-hono": {
+    "adapters/hono": {
       "release-type": "node",
       "component": "ts-hono",
-      "package-name": "@poly-agntcy/dir-hono"
+      "package-name": "@hop-top/agntcy-dir-hono"
     },
-    "ts/packages/dir-express": {
+    "adapters/express": {
       "release-type": "node",
       "component": "ts-express",
-      "package-name": "@poly-agntcy/dir-express"
+      "package-name": "@hop-top/agntcy-dir-express"
     },
-    "py/packages/dir-fastapi": {
+    "adapters/fastapi": {
       "release-type": "python",
       "component": "py-fastapi",
-      "package-name": "poly-agntcy-dir-fastapi"
+      "package-name": "hop-top-agntcy-dir-fastapi"
     },
-    "py/packages/dir-flask": {
+    "adapters/flask": {
       "release-type": "python",
       "component": "py-flask",
-      "package-name": "poly-agntcy-dir-flask"
+      "package-name": "hop-top-agntcy-dir-flask"
     },
-    "py/packages/dir-django": {
+    "adapters/django": {
       "release-type": "python",
       "component": "py-django",
-      "package-name": "poly-agntcy-dir-django"
+      "package-name": "hop-top-agntcy-dir-django"
     }
   }
 }

@@ -1,0 +1,38 @@
+[project]
+name = "hop-top-agntcy-py-workspace"
+version = "0.0.0"
+description = "Workspace root (not published)"
+requires-python = ">=3.12"
+
+[tool.uv.workspace]
+members = [
+    "../../adapters/fastapi",
+    "../../adapters/flask",
+    "../../adapters/django",
+]
+
+[tool.uv.sources]
+hop-top-agntcy-dir-fastapi = { workspace = true }
+hop-top-agntcy-dir-flask = { workspace = true }
+hop-top-agntcy-dir-django = { workspace = true }
+
+[dependency-groups]
+dev = [
+  "mypy>=1.13",
+  "pytest>=8",
+  "pytest-asyncio>=0.24",
+  "ruff>=0.5",
+]
+
+[tool.mypy]
+strict = true
+python_version = "3.12"
+warn_return_any = true
+warn_unused_configs = true
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B"]

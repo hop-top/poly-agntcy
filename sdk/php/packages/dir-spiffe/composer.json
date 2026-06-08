@@ -1,14 +1,14 @@
 {
-    "name": "poly-agntcy/dir-spiffe",
+    "name": "hop-top/agntcy-dir-spiffe",
     "type": "library",
-    "description": "SPIFFE-backed credentials for poly-agntcy/dir",
+    "description": "SPIFFE-backed credentials for hop-top/agntcy-dir",
     "license": "Apache-2.0",
     "require": {
         "php": "^8.2",
-        "poly-agntcy/dir": "*"
+        "hop-top/agntcy-dir": "*"
     },
     "autoload": {
-        "psr-4": { "PolyAgntcy\\Dir\\Spiffe\\": "src/" }
+        "psr-4": { "HopTop\\Agntcy\\Dir\\Spiffe\\": "src/" }
     },
     "config": {
         "sort-packages": true

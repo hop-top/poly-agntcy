@@ -12,8 +12,8 @@ run = [
   "(cd sdk/go && golangci-lint run ./...)",
   "(cd cmd/agntcy && golangci-lint run ./...)",
   "(cd sdk/rs && cargo clippy --workspace -- -D warnings)",
-  "(cd ts && pnpm -r lint)",
-  "(cd py && uv run ruff check)",
+  "(cd sdk/ts && pnpm -r lint)",
+  "(cd sdk/py && uv run ruff check)",
   "(cd sdk/php && vendor/bin/phpstan analyse)",
 ]
 
@@ -22,8 +22,8 @@ description = "Test all enabled languages"
 run = [
   "go test ./sdk/go/... ./cmd/agntcy ./gen/go/...",
   "(cd sdk/rs && cargo test --workspace)",
-  "(cd ts && pnpm -r test)",
-  "(cd py && uv run pytest)",
+  "(cd sdk/ts && pnpm -r test)",
+  "(cd sdk/py && uv run pytest)",
   "(cd sdk/php && vendor/bin/phpunit)",
 ]
 
@@ -38,8 +38,8 @@ run = [
   "(cd cmd/agntcy && go mod download)",
   "(cd gen/go && go mod download)",
   "(cd sdk/rs && cargo fetch)",
-  "(cd ts && pnpm install)",
-  "(cd py && uv sync)",
+  "(cd sdk/ts && pnpm install)",
+  "(cd sdk/py && uv sync)",
   "(cd sdk/php && composer install --no-interaction) || true",
   "(cd contracts && buf dep update) || true",
 ]

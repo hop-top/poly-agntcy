@@ -1,0 +1,16 @@
+{
+  "name": "@hop-top/agntcy-ts-workspace",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "lint": "pnpm -r lint"
+  },
+  "devDependencies": {
+    "typescript": "^5.6",
+    "vitest": "^2.1",
+    "@types/node": "^22"
+  },
+  "packageManager": "pnpm@9.12.0"
+}

@@ -38,9 +38,9 @@ All registry credentials live as **org-level secrets on `hop-top`** with `ALL` r
 
 Three Python packages publish via OIDC instead of `PYPI_REGISTRY_TOKEN`:
 
-- `poly-agntcy-dir-fastapi`
-- `poly-agntcy-dir-flask`
-- `poly-agntcy-dir-django`
+- `hop-top-agntcy-dir-fastapi`
+- `hop-top-agntcy-dir-flask`
+- `hop-top-agntcy-dir-django`
 
 Each one needs a trusted publisher configured on PyPI (one-time, web UI):
 
@@ -55,10 +55,10 @@ Until the trusted publishers are registered, the Python publish jobs fall back t
 
 Four PHP packages need their Packagist project linked to GitHub for auto-update:
 
-- `poly-agntcy/dir`
-- `poly-agntcy/dir-laravel`
-- `poly-agntcy/dir-symfony`
-- `poly-agntcy/dir-spiffe`
+- `hop-top/agntcy-dir`
+- `hop-top/agntcy-dir-laravel`
+- `hop-top/agntcy-dir-symfony`
+- `hop-top/agntcy-dir-spiffe`
 
 For each:
 

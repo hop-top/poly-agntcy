@@ -1,5 +1,5 @@
 {
-  "name": "@poly-agntcy/example-hono-edge",
+  "name": "@hop-top/example-hono-edge",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -8,7 +8,7 @@
     "deploy": "wrangler deploy"
   },
   "dependencies": {
-    "@poly-agntcy/dir-hono": "workspace:*",
+    "@hop-top/agntcy-dir-hono": "workspace:*",
     "hono": "^4.6.0"
   },
   "devDependencies": {

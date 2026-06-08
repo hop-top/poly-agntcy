@@ -19,26 +19,26 @@ You need:
 | Language | Command |
 |---|---|
 | Go | `go get hop.top/agntcy` |
-| Rust | `cargo add poly-agntcy-dir` |
-| PHP (core) | `composer require poly-agntcy/dir` |
-| PHP (Laravel) | `composer require poly-agntcy/dir-laravel` |
-| PHP (Symfony) | `composer require poly-agntcy/dir-symfony` |
-| TypeScript (Next.js) | `pnpm add @poly-agntcy/dir-next` |
-| TypeScript (Hono) | `pnpm add @poly-agntcy/dir-hono` |
-| TypeScript (Express) | `pnpm add @poly-agntcy/dir-express` |
-| Python (FastAPI) | `uv add poly-agntcy-dir-fastapi` |
-| Python (Flask) | `uv add poly-agntcy-dir-flask` |
-| Python (Django) | `uv add poly-agntcy-dir-django` |
+| Rust | `cargo add hop-top-agntcy-dir` |
+| PHP (core) | `composer require hop-top/agntcy-dir` |
+| PHP (Laravel) | `composer require hop-top/agntcy-dir-laravel` |
+| PHP (Symfony) | `composer require hop-top/agntcy-dir-symfony` |
+| TypeScript (Next.js) | `pnpm add @hop-top/agntcy-dir-next` |
+| TypeScript (Hono) | `pnpm add @hop-top/agntcy-dir-hono` |
+| TypeScript (Express) | `pnpm add @hop-top/agntcy-dir-express` |
+| Python (FastAPI) | `uv add hop-top-agntcy-dir-fastapi` |
+| Python (Flask) | `uv add hop-top-agntcy-dir-flask` |
+| Python (Django) | `uv add hop-top-agntcy-dir-django` |
 
 The CLI ships inside the relevant package per language:
 
 | Language | CLI binary | Lives in |
 |---|---|---|
 | Go | `agntcy` | `hop.top/agntcy` (`go install hop.top/agntcy/cmd/agntcy@latest`) |
-| Rust | `agntcy` | `poly-agntcy-dir` (`cargo install poly-agntcy-dir --features cli`) |
-| PHP | `agntcy` | `poly-agntcy/dir` (Composer `bin/`) |
-| TypeScript | `agntcy` | `@poly-agntcy/dir-next` (`npx @poly-agntcy/dir-next`) |
-| Python | `agntcy` | `poly-agntcy-dir-fastapi` (`uv tool install poly-agntcy-dir-fastapi`) |
+| Rust | `agntcy` | `hop-top-agntcy-dir` (`cargo install hop-top-agntcy-dir --features cli`) |
+| PHP | `agntcy` | `hop-top/agntcy-dir` (Composer `bin/`) |
+| TypeScript | `agntcy` | `@hop-top/agntcy-dir-next` (`npx @hop-top/agntcy-dir-next`) |
+| Python | `agntcy` | `hop-top-agntcy-dir-fastapi` (`uv tool install hop-top-agntcy-dir-fastapi`) |
 
 ## Add SPIFFE support (optional)
 
@@ -47,8 +47,8 @@ If you want SPIFFE-backed credentials instead of plain TLS, install the extensio
 | Language | Command |
 |---|---|
 | Go | `go get hop.top/agntcy/spiffe` |
-| Rust | `cargo add poly-agntcy-dir-spiffe` |
-| PHP | `composer require poly-agntcy/dir-spiffe` |
+| Rust | `cargo add hop-top-agntcy-dir-spiffe` |
+| PHP | `composer require hop-top/agntcy-dir-spiffe` |
 
 TS and Python adapters get SPIFFE through the official upstream SDK; no separate install needed.
 
@@ -62,7 +62,7 @@ agntcy --help
 
 You should see the five DIR subcommands: `register`, `discover`, `describe`, `publish`, `verify`.
 
-For a library install, write a one-line program that imports the package — `go build`, `cargo check`, `composer install`, `pnpm tsc --noEmit`, or `python -c "import poly_agntcy_dir_fastapi"` all succeeding is enough.
+For a library install, write a one-line program that imports the package — `go build`, `cargo check`, `composer install`, `pnpm tsc --noEmit`, or `python -c "import agntcy_dir_fastapi"` all succeeding is enough.
 
 ## Next steps
 

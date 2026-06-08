@@ -1,5 +1,5 @@
 {
-  "name": "@poly-agntcy/example-express-quickstart",
+  "name": "@hop-top/example-express-quickstart",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -8,7 +8,7 @@
     "build": "tsc -p tsconfig.json"
   },
   "dependencies": {
-    "@poly-agntcy/dir-express": "workspace:*",
+    "@hop-top/agntcy-dir-express": "workspace:*",
     "express": "^4.21.0"
   },
   "devDependencies": {

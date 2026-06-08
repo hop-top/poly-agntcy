@@ -2,10 +2,10 @@ use std::sync::Arc;
 
 use anyhow::Result;
 use clap::Parser;
-use poly_agntcy_dir::{
+use hop_top_agntcy_dir::{
     Client, DiscoverParams, InsecureCredentials, Options, PublishParams, RegisterParams,
 };
-use poly_agntcy_dir::proto::AgentDescriptor;
+use hop_top_agntcy_dir::proto::AgentDescriptor;
 
 #[derive(Parser)]
 struct Args {

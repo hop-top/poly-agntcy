@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Command;
 
-use PolyAgntcy\Dir\Client;
-use PolyAgntcy\Dir\Generated\Agent;
+use HopTop\Agntcy\Dir\Client;
+use HopTop\Agntcy\Dir\Generated\Agent;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;

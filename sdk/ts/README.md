@@ -1,23 +1,37 @@
-# sdk/ts
+# hop-top agntcy TypeScript adapters
 
-TypeScript does not ship a first-party SDK. The Node/TS ecosystem consumes the
-upstream `agntcy-dir` SDK directly; the `dir-next`, `dir-hono`, and
-`dir-express` packages under this repo are framework **adapters**, not SDKs,
-and live under `adapters/<framework>/` after the adapter migration completes.
+pnpm workspace shipping framework adapters for the AGNTCY Directory
+Service.
 
-See `docs/adr/0007-role-based-layout-sdk-adapter-split.md` for the layout
-rationale, and `docs/adr/0001-typescript-no-first-party-sdk.md` for the
-upstream-consumption decision.
+## Packages
 
-## Status
+| Package | Role |
+|---------|------|
+| [`@hop-top/agntcy-dir-next`](../../adapters/next) | Next.js Route Handler + `agntcy` CLI |
+| [`@hop-top/agntcy-dir-hono`](../../adapters/hono) | Hono plugin |
+| [`@hop-top/agntcy-dir-express`](../../adapters/express) | Express middleware |
 
-Placeholder. The TS workspace root (`package.json`, `pnpm-workspace.yaml`,
-`pnpm-lock.yaml`, `tsconfig.base.json`, `.npmrc`, `.gitignore`, `README.md`)
-currently still lives at `ts/` because the adapter packages have not yet been
-moved out of `ts/packages/`. Moving the workspace root before the adapters
-would leave `pnpm-workspace.yaml`'s `packages: - 'packages/*'` glob pointing
-at an empty directory and break `pnpm install`.
+All three are alpha. Function/type contracts are stable; runtime stubs
+respond with HTTP 501 until upstream `agntcy-dir` wire integration lands.
 
-Once the adapter migration lands and `pnpm-workspace.yaml` is rewritten to
-point at the new adapter locations, the workspace root files move here and
-this README is replaced with real package documentation.
+## Install
+
+```sh
+pnpm install --config.auto-install-peers=false --ignore-scripts
+```
+
+`--config.auto-install-peers=false --ignore-scripts` works around a
+transitive Buf Schema Registry auth error pulled in by `agntcy-dir`. See
+each package README for the same note in adopter context.
+
+## Build / test
+
+```sh
+pnpm -r build                                    # compile each package
+pnpm -r exec tsc --noEmit -p tsconfig.json       # typecheck
+pnpm -r test                                     # vitest
+```
+
+## License
+
+Apache-2.0

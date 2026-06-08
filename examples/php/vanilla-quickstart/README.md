@@ -1,6 +1,6 @@
 # php / vanilla-quickstart
 
-Plain PHP script using `poly-agntcy/dir` directly — no framework.
+Plain PHP script using `hop-top/agntcy-dir` directly — no framework.
 
 ## Run
 

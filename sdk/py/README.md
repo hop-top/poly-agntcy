@@ -1,20 +1,43 @@
-# Python SDK
+# hop-top/agntcy Python workspace
 
-Python does not ship a first-party SDK in this repo. See [ADR-0001](../../docs/adr/0001-scope-dir-only-phase-one.md) and [ADR-0007](../../docs/adr/0007-role-based-layout-sdk-adapter-split.md).
+uv workspace hosting three framework adapters for the AGNTCY Directory Service.
 
-Framework integrations live under `adapters/py/` (FastAPI, Flask, Django) once
-the adapter migration completes.
+## Packages
 
-## Current state
+- `packages/dir-fastapi` — FastAPI `APIRouter` factory + `agntcy` Typer CLI.
+- `packages/dir-flask` — Flask `Blueprint` factory.
+- `packages/dir-django` — Django app providing URLs and views.
 
-This directory is a placeholder. The Python `pyproject.toml` uv workspace and
-its `packages/*` adapter members still live under `py/` at the repo root —
-moving the workspace root here before its members migrate would break the
-`[tool.uv.workspace]` member globs.
+All three depend on upstream `agntcy-dir` (pre-1.0; pinned `>=0.3,<2`).
 
-## Next step
+## Requirements
 
-The workspace root (`py/pyproject.toml`, `py/.gitignore`) moves into this
-directory in the adapter-extract phase, alongside the relocation of
-`py/packages/dir-fastapi`, `py/packages/dir-flask`, and `py/packages/dir-django`
-to `adapters/py/`.
+- Python 3.12+
+- [`uv`](https://docs.astral.sh/uv/) for env + dependency management.
+
+## Common commands
+
+```sh
+uv sync                       # install workspace + dev deps
+uv run pytest                 # run all package tests
+uv run ruff check packages    # lint
+uv run ruff format packages   # format
+uv run mypy packages          # typecheck (strict)
+```
+
+Run a single package's tests:
+
+```sh
+uv run pytest packages/dir-fastapi
+```
+
+## Layout
+
+```
+py/
+  pyproject.toml          # workspace root + mypy/ruff config
+  packages/
+    dir-fastapi/
+    dir-flask/
+    dir-django/
+```

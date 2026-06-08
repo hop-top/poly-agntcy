@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PolyAgntcy\Dir\Spiffe;
+namespace HopTop\Agntcy\Dir\Spiffe;
 
 /**
  * X509 trust bundle for a given trust domain.

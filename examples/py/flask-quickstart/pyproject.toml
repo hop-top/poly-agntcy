@@ -1,12 +1,12 @@
 [project]
-name = "poly-agntcy-example-flask-quickstart"
+name = "hop-top-example-flask-quickstart"
 version = "0.0.0"
-description = "Flask quickstart for poly-agntcy-dir-flask"
+description = "Flask quickstart for hop-top-agntcy-dir-flask"
 requires-python = ">=3.12"
 dependencies = [
-  "poly-agntcy-dir-flask",
+  "hop-top-agntcy-dir-flask",
   "flask>=3.0",
 ]
 
 [tool.uv.sources]
-poly-agntcy-dir-flask = { path = "../../../py/packages/dir-flask", editable = true }
+hop-top-agntcy-dir-flask = { path = "../../../adapters/flask", editable = true }

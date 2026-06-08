@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace PolyAgntcy\Dir\Tests\Integration;
+namespace HopTop\Agntcy\Dir\Tests\Integration;
 
 use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
-use PolyAgntcy\Dir\Client;
-use PolyAgntcy\Dir\InsecureCredentials;
+use HopTop\Agntcy\Dir\Client;
+use HopTop\Agntcy\Dir\InsecureCredentials;
 
 #[Group('integration')]
 final class WireTest extends TestCase
