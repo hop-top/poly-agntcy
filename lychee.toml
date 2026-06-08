@@ -1,0 +1,15 @@
+exclude_path = [
+  "node_modules",
+  "target",
+  "vendor",
+  ".git",
+  "dist",
+  "build",
+  ".venv",
+]
+
+exclude = [
+  "^https?://hop\\.top/agntcy",
+  "^https?://(www\\.)?npmjs\\.com/package/@buf/",
+  "@buf/agntcy_dir\\.bufbuild_es",
+]

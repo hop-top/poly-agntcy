@@ -17,7 +17,7 @@ cross:
 
 links:
 	@if command -v lychee >/dev/null 2>&1; then \
-		lychee --no-progress .; \
+		lychee --offline --no-progress .; \
 	else \
 		echo "lychee not installed; skipping link check"; \
 	fi
