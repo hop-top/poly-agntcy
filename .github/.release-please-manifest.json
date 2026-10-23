@@ -1,6 +1,6 @@
 {
   "sdk/go": "0.0.0",
-  "sdk/go/spiffe": "0.0.0",
+  "sdk/go/spiffe": "0.1.0",
   "sdk/rs/hop-top-agntcy-dir": "0.0.0",
   "sdk/rs/hop-top-agntcy-dir-spiffe": "0.0.0",
   "sdk/php/packages/dir": "0.0.0",
