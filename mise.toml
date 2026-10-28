@@ -46,7 +46,7 @@ run = [
 
 # >>> kit-managed >>>
 [tools]
-go = "1.26"
+go = "1.27"
 node = "22"
 pnpm = "9"
 python = "3.13"
